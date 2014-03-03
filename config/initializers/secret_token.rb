@@ -9,4 +9,20 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Gordo::Application.config.secret_key_base = '4578b00834ea0f7c385b9ae691c9fdf08bdccf6c353a4f26ae7926449f069a0fb6ebbaefcb8b6899e91bfa18641a485a0f328084f2107d79faa1d9a9c6af75b3'
+
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Gordo::Application.config.secret_key_base = secure_token
