@@ -22,5 +22,7 @@ module Gordo
 
 
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.assets.compile = true
+    config.serve_static_assets = true
   end
 end
