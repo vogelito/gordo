@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validates :email, presence:true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   VALID_CELLPHONE_REGEX = /\A\+1\d{10}\Z/
   validates :cellphone, presence:true, uniqueness:true, format: { with: VALID_CELLPHONE_REGEX, message: "enter 10 digits" }
+  validates :password, length: { minimum: 6 }
 
   before_validation do
     if attribute_present?("cellphone")
@@ -20,4 +21,6 @@ class User < ActiveRecord::Base
       self.email = email.downcase
     end
   end
+
+  has_secure_password
 end
