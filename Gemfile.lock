@@ -76,7 +76,7 @@ GEM
     execjs (2.0.2)
     factory_girl (4.2.0)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.2.0)
+    factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
     faker (1.1.2)
@@ -232,7 +232,7 @@ DEPENDENCIES
   coffee-rails (= 4.0.1)
   cucumber-rails (= 1.4.0)
   database_cleaner!
-  factory_girl_rails (= 4.2.0)
+  factory_girl_rails (= 4.2.1)
   faker (= 1.1.2)
   growl (= 1.0.3)
   guard-rspec (= 2.5.0)
