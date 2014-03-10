@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   validates :cellphone, presence:true, uniqueness:true, format: { with: VALID_CELLPHONE_REGEX, message: "enter 10 digits" }
   validates :password, length: { minimum: 6 }
 
+  before_create :create_remember_token
+
   before_validation do
     if attribute_present?("cellphone")
       # get rid of all non-numeric characters
@@ -23,4 +25,18 @@ class User < ActiveRecord::Base
   end
 
   has_secure_password
+
+  def User.new_remember_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def User.hash(token)
+    Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  private
+
+    def create_remember_token
+      self.remember_token = User.hash(User.new_remember_token)
+    end
 end
