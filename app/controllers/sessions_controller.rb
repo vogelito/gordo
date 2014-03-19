@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       #TODO: maybe here we should do the credit card validation
       sign_in user
-      redirect_to user
+      redirect_back_or user
     else
       flash.now[:error] = 'Invalid email/password combination' # Not quite right!
       render 'new'
