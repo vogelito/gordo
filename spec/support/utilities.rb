@@ -25,4 +25,10 @@ def sign_in(user, options={})
     click_button "Sign in"
   end
 end
+
+# Very slight possibility of collisions (false negatives). We could initialize a hash and remove elements
+# as we go, but this is good enought for now
+def get_random_phone
+   range = (0..9)
+   range.map { range.to_a[rand(range.size)] }.join
 end
