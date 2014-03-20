@@ -17,6 +17,8 @@ describe User do
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
   it { should respond_to(:orders) }
+  #TODO: remove....
+  it { should respond_to(:feed) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -162,6 +164,17 @@ describe User do
       orders.each do |order|
         expect(Order.where(id: order.id)).to be_empty
       end
+    end
+
+    #TODO: remove....
+    describe "status" do
+      let(:unfollowed_post) do
+        FactoryGirl.create(:order, user: FactoryGirl.create(:user))
+      end
+
+      its(:feed) { should include(newer_order) }
+      its(:feed) { should include(older_order) }
+      its(:feed) { should_not include(unfollowed_post) }
     end
   end
 end

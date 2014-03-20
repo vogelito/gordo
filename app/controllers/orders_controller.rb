@@ -7,6 +7,8 @@ class OrdersController < ApplicationController
       flash[:success] = "Order created!"
       redirect_to root_url
     else
+      # TODO: remove...
+      @feed_items = []
       render 'static_pages/home'
     end
   end

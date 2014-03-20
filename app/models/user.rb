@@ -24,6 +24,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  #TODO: remove...
+  def feed
+    # This is preliminary. See "Following users" for the full implementation.
+    Order.where("user_id = ?", id)
+  end
+
   has_secure_password
 
   def User.new_remember_token
