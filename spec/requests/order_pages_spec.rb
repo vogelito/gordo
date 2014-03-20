@@ -30,4 +30,17 @@ describe "Order pages" do
       end
     end
   end
+
+  #TODO: this shouldn't be allowed
+  describe "order destruction" do
+    before { FactoryGirl.create(:order, user: user) }
+
+    describe "as correct user" do
+      before { visit root_path }
+
+      it "should delete a order" do
+        expect { click_link "delete" }.to change(Order, :count).by(-1)
+      end
+    end
+  end
 end
