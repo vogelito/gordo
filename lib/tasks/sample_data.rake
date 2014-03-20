@@ -23,5 +23,11 @@ namespace :db do
                    password: password,
                    password_confirmation: password)
     end
+
+    users = User.all(limit: 6)
+    50.times do
+      address = "#{Faker::Address.street_address}, #{Faker::Address.secondary_address}, #{Faker::Address.city}, #{Faker::Address.state_abbr}, #{Faker::Address.zip_code}"
+      users.each { |user| user.orders.create!(address: address) }
+    end
   end
 end
