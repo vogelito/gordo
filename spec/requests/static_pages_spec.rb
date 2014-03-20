@@ -20,18 +20,26 @@ describe "Static pages" do
     #TODO: remove....
     describe "for signed-in users" do
       let(:user) { FactoryGirl.create(:user) }
+
       before do
-        FactoryGirl.create(:order, user: user, address: "Unit 1305")
-        FactoryGirl.create(:order, user: user, address: "Apt. 27-A")
+        35.times { FactoryGirl.create(:order, user: user, address: "Unit 1305") }
         sign_in user
         visit root_path
       end
 
+      after { user.orders.delete_all }
+
       it "should render the user's feed" do
-        user.feed.each do |item|
+        user.feed.paginate(page: 1).each do |item|
           expect(page).to have_selector("li##{item.id}", text: item.address)
         end
       end
+
+      it "should have order count and pluralize" do
+        expect(page).to have_content('35 orders')
+      end
+
+      it { should have_selector('div.pagination') }
     end
   end
 
