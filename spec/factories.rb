@@ -10,4 +10,9 @@ FactoryGirl.define do
       admin true
     end
   end
+
+  factory :order do
+    address "1 Western Ave"
+    user
+  end
 end

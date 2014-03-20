@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :orders
+  has_many :orders, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i

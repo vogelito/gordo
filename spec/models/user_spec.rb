@@ -140,4 +140,28 @@ describe User do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
   end
+
+  describe "order associations" do
+
+    before { @user.save }
+    let!(:older_order) do
+      FactoryGirl.create(:order, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_order) do
+      FactoryGirl.create(:order, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the orders arranged by descending time (newest orders first)" do
+      expect(@user.orders.to_a).to eq [newer_order, older_order]
+    end
+
+    it "should destroy associated orders" do
+      orders = @user.orders.to_a
+      @user.destroy
+      expect(orders).not_to be_empty
+      orders.each do |order|
+        expect(Order.where(id: order.id)).to be_empty
+      end
+    end
+  end
 end
