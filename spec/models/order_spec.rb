@@ -18,4 +18,19 @@ describe Order do
     before { @order.user_id = nil }
     it { should_not be_valid }
   end
+
+  describe "when user_id is not present" do
+    before { @order.user_id = nil }
+    it { should_not be_valid }
+  end
+
+  describe "with blank address" do
+    before { @order.address = " " }
+    it { should_not be_valid }
+  end
+
+  describe "with address that is too long" do
+    before { @order.address = "a" * 101 }
+    it { should_not be_valid }
+  end
 end
