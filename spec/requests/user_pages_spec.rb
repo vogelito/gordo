@@ -92,7 +92,7 @@ describe "User pages" do
         fill_in "Email",           with: "user@example.com"
         fill_in "Cellphone",     with: "+11231234564"
         fill_in "Password",     with: "foobar"
-        fill_in "Confirmation", with: "foobar"
+        fill_in "Confirm Password", with: "foobar"
       end
 
       it "should create a user" do
