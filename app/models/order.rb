@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
-  validates :user_id, presence: true
   belongs_to :user
+  validates :user_id, presence: true
 
   validates :address, presence: true
 end
