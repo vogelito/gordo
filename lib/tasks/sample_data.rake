@@ -5,7 +5,8 @@ namespace :db do
                  email: "dvogel@cs.stanford.edu",
                  cellphone: "+16504556864",
                  password: "12341234",
-                 password_confirmation: "12341234")
+                 password_confirmation: "12341234",
+                 admin: true)
     User.create!(name: "Example User",
                  email: "example@railstutorial.org",
                  cellphone: "+11234567890",
