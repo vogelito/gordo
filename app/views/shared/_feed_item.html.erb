@@ -9,9 +9,5 @@
       Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
     </span>
   <%- #TODO: orders shouldn't be allowed to be deleted -%>
-  <% if current_user?(feed_item.user) %>
-    <%= link_to "delete", feed_item, method: :delete,
-                                     data: { confirm: "You sure?" },
-                                     title: feed_item.address %>
-  <% end %>
+  <%= render 'shared/order_delete', order: feed_item %>
 </li>

@@ -52,6 +52,7 @@ describe "User pages" do
     end
   end
 
+  # TODO: These shouldn't be visible unless you're the right user! (see next test)
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
     let!(:o1) { FactoryGirl.create(:order, user: user, address: "Unit 1") }
@@ -62,10 +63,33 @@ describe "User pages" do
     it { should have_content(user.name) }
     it { should have_title(user.name) }
 
-    describe "microposts" do
+    describe "orders" do
       it { should have_content(o1.address) }
       it { should have_content(o2.address) }
       it { should have_content(user.orders.count) }
+    end
+  end
+
+  describe "profile page when signed in" do
+    let(:user) { FactoryGirl.create(:user) }
+    let!(:o1) { FactoryGirl.create(:order, user: user, address: "Unit 1") }
+    let!(:o2) { FactoryGirl.create(:order, user: user, address: "Apt 2") }
+
+    before do
+      sign_in user
+      visit user_path(user)
+    end
+
+    it { should have_content(user.name) }
+    it { should have_title(user.name) }
+
+    describe "orders" do
+      it { should have_content(o1.address) }
+      it { should have_content(o2.address) }
+      it { should have_content(user.orders.count) }
+      # TODO: orders shouldn't be allowed to be delleted
+      it { should have_link('delete', href: order_path(o1)) }
+      it { should have_link('delete', href: order_path(o2)) }
     end
   end
 

@@ -4,9 +4,5 @@
     Placed <%= time_ago_in_words(order.created_at) %> ago.
   </span>
   <%- #TODO: orders shouldn't be allowed to be deleted -%>
-  <% if current_user?(order.user) %>
-    <%= link_to "delete", order, method: :delete,
-                                     data: { confirm: "You sure?" },
-                                     title: order.address %>
-  <% end %>
+  <%= render 'shared/order_delete', order: order %>
 </li>
