@@ -1,12 +1,27 @@
-<div class="center hero-unit">
-  <h1>Gordo App</h1>
-  <h2>
-    This is the home page for
-    <a href="http://getgordo.com/">Gordo</a>
-     - feeding you since 2014.
-  </h2>
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/order_form' %>
+      </section>
+    </aside>
+  </div>
+<% else %>
+  <div class="center hero-unit">
+    <h1>Gordo App</h1>
 
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-</div>
+    <h2>
+      This is the home page for the
+      <a href="http://getgordo.com/">Gordo</a>
+      - feeding you since 2014.
+    </h2>
 
-<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+    <%= link_to "Sign up now!", signup_path,
+                                class: "btn btn-large btn-primary" %>
+  </div>
+
+  <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+<% end %>
