@@ -108,6 +108,22 @@ describe "Authentication" do
       end
     end
 
+    describe "as normal user" do
+      let(:user) { FactoryGirl.create(:user) }
+      before { sign_in user, no_capybara: true }
+
+      describe "submitting a POST request to the Users#create action" do
+        let(:new_user) { FactoryGirl.create(:user) }
+        before {  post users_path user: new_user.attributes }
+        specify { expect(response).to redirect_to(root_url) }
+      end
+
+      describe "submitting a GET request to the Users#new action" do
+        before { get new_user_path }
+        specify { expect(response).to redirect_to(root_url) }
+      end
+    end
+
     describe "as non-admin user" do
       let(:user) { FactoryGirl.create(:user) }
       let(:non_admin) { FactoryGirl.create(:user) }
