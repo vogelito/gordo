@@ -1,5 +1,5 @@
 <li>
-  <span class="address"><%= order.address %></span>
+  <span class="address"><%= wrap(order.address) %></span>
   <span class="timestamp">
     Placed <%= time_ago_in_words(order.created_at) %> ago.
   </span>
