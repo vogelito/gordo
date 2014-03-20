@@ -103,6 +103,19 @@ describe "Authentication" do
           it { should have_title('Sign in') }
         end
       end
+
+     describe "in the Orders controller" do
+
+        describe "submitting to the create action" do
+          before { post orders_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before { delete order_path(FactoryGirl.create(:order)) }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+      end
     end
 
     describe "as wrong user" do
