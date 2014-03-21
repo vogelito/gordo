@@ -1,0 +1,15 @@
+<% provide(:title, 'Food Items') %>
+<h1>Food Items</h1>
+
+<%= will_paginate %>
+
+<ul class="food_items">
+  <% @food_items.each do |food_item| %>
+    <li>
+      <%= image_tag food_item.picture_url, height: '64', width: '64' %>
+      <%= link_to food_item.title, food_item %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate %>

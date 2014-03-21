@@ -2,6 +2,7 @@ Gordo::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :orders, only: [:create, :destroy]
+  resources :food_items
 
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'

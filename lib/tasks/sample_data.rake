@@ -41,7 +41,7 @@ namespace :db do
       users.each { |user| user.orders.create!(address: address) }
     end
 
-    10.times do
+    50.times do
       FoodItem.create!(title: Faker::Lorem.sentence(1),
                     description: Faker::Lorem.sentence(6),
                     picture_url: "http://getgordo.com/pics/pad_thai.jpg",
