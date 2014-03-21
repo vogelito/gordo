@@ -124,7 +124,6 @@ describe "Authentication" do
         before { visit food_items_path }
         it { should have_title('Sign in') }
       end
-
     end
 
     describe "as wrong user" do
@@ -158,6 +157,16 @@ describe "Authentication" do
         before { get new_user_path }
         specify { expect(response).to redirect_to(root_url) }
       end
+
+      describe "submitting a GET request to the FoodItems#index action" do
+        before { get food_items_path }
+        specify { expect(response).to redirect_to(root_url) }
+      end
+
+      describe "submitting a DELETE request to the FoodItems#destroy action" do
+        before { delete food_item_path(FactoryGirl.create(:food_item)) }
+        specify { expect(response).to redirect_to(root_url) }
+      end
     end
 
     describe "as non-admin user" do
@@ -168,11 +177,6 @@ describe "Authentication" do
 
       describe "submitting a DELETE request to the Users#destroy action" do
         before { delete user_path(user) }
-        specify { expect(response).to redirect_to(root_url) }
-      end
-
-      describe "trying to access FoodItems#index" do
-        before { get food_items_path }
         specify { expect(response).to redirect_to(root_url) }
       end
     end
