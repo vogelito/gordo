@@ -170,6 +170,11 @@ describe "Authentication" do
         before { delete user_path(user) }
         specify { expect(response).to redirect_to(root_url) }
       end
+
+      describe "trying to access FoodItems#index" do
+        before { get food_items_path }
+        specify { expect(response).to redirect_to(root_url) }
+      end
     end
 
     describe "as admin user" do

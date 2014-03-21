@@ -6,10 +6,10 @@ describe "FoodItemPages" do
 
   describe "index" do
 
-    let(:user) { FactoryGirl.create(:user) }
+    let(:admin) { FactoryGirl.create(:admin) }
 
     before(:each) do
-      sign_in user
+      sign_in admin
       visit food_items_path
     end
 
