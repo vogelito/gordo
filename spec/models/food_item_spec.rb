@@ -12,8 +12,10 @@ describe FoodItem do
   it { should respond_to(:description) }
   it { should respond_to(:picture_url) }
   it { should respond_to(:price) }
+  it { should respond_to(:active) }
 
   it { should be_valid }
+  it { should_not be_active }
 
   describe "when title is not present" do
     before { @food_item.title = " " }
@@ -50,7 +52,7 @@ describe FoodItem do
       max = Gordo::Application::MAX_PRICE
       min = Gordo::Application::MIN_PRICE
       prices = [max+0.01, min-0.01, "string", "#{max}.01",
-                "0.0.0", -7, -0.01, 0, nil, " "]
+                "0.0.0", -7, -0.01, 0, nil, " ", ((min+max)/2)+0.001]
       prices.each do |invalid_price|
         @food_item.price = invalid_price
         expect(@food_item).not_to be_valid
@@ -63,7 +65,7 @@ describe FoodItem do
       max = Gordo::Application::MAX_PRICE
       min = Gordo::Application::MIN_PRICE
       prices = [max, max-0.01, min, min+0.01,
-                "6.6", (max+min)/2]
+                "#{((max+min)/2+0.001).round(2)}", (max+min)/2]
       prices.each do |valid_price|
         @food_item.price = valid_price
         expect(@food_item).to be_valid
