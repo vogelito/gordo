@@ -42,10 +42,10 @@ namespace :db do
     end
 
     10.times do
-      FoodItem.create!(title: Faker::Lorem.sentence(3),
+      FoodItem.create!(title: Faker::Lorem.sentence(1),
                     description: Faker::Lorem.sentence(6),
                     picture_url: "http://getgordo.com/pics/pad_thai.jpg",
-                    price: get_random_number(5,20,2))
+                    price: get_random_number(Gordo::Application::MIN_PRICE,Gordo::Application::MAX_PRICE,2))
     end
 
   end
