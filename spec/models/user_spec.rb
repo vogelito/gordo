@@ -3,13 +3,15 @@ require 'spec_helper'
 describe User do
   before do
     @user = User.new(name: "Example User", email: "user@example.com", cellphone: "1234567890", 
-                                password: "foobar", password_confirmation: "foobar")
+                                default_address: "1 Western Ave Unit 1305", password: "foobar", password_confirmation: "foobar")
   end
 
   subject { @user }
 
   it { should respond_to(:name) }
   it { should respond_to(:email) }
+  it { should respond_to(:cellphone) }
+  it { should respond_to(:default_address) }
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
@@ -101,6 +103,16 @@ describe User do
       user_with_same_cellphone.save
     end
 
+    it { should_not be_valid }
+  end
+
+  describe "when default address is not present" do
+    before { @user.default_address = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when default address is too long" do
+    before { @user.default_address = "a" * 101 }
     it { should_not be_valid }
   end
 
