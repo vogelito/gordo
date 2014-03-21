@@ -16,6 +16,15 @@ describe FoodItem do
   it { should be_valid }
   it { should_not be_active }
 
+  describe "with active attribute set to 'true'" do
+    before do
+      @food_item.save!
+      @food_item.toggle!(:active)
+    end
+
+    it { should be_active }
+  end
+
   describe "when title is not present" do
     before { @food_item.title = " " }
     it { should_not be_valid }

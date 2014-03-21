@@ -118,6 +118,15 @@ describe "Authentication" do
       end
     end
 
+    describe "in the FoodItems controller" do
+
+      describe "visitng the food item index" do
+        before { visit food_items_path }
+        it { should have_title('Sign in') }
+      end
+
+    end
+
     describe "as wrong user" do
       let(:user) { FactoryGirl.create(:user) }
       let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com", cellphone: get_random_phone) } 
