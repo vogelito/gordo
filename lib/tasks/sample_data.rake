@@ -2,6 +2,10 @@ def get_address
   "#{Faker::Address.street_address}, #{Faker::Address.secondary_address}, #{Faker::Address.city}, #{Faker::Address.state_abbr} #{Faker::Address.zip_code}"
 end
 
+def get_random_number(min, max, precision)
+   ((max - min) * rand() + min).round(precision)
+end
+
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
@@ -36,5 +40,13 @@ namespace :db do
       address = get_address
       users.each { |user| user.orders.create!(address: address) }
     end
+
+    10.times do
+      FoodItem.create!(title: Faker::Lorem.sentence(3),
+                    description: Faker::Lorem.sentence(6),
+                    picture_url: "http://getgordo.com/pics/pad_thai.jpg",
+                    price: get_random_number(5,20,2))
+    end
+
   end
 end
