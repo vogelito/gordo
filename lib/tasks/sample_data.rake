@@ -41,6 +41,12 @@ namespace :db do
       users.each { |user| user.orders.create!(address: address) }
     end
 
+    FoodItem.create!(title: "Beef Pad Thai",
+                  description: "Delicious Beef Pad Thai with a slice of lime delivered straight to you",
+                  picture_url: "http://getgordo.com/pics/pad_thai.jpg",
+                  price: 8.99,
+                  active: true)
+
     50.times do
       FoodItem.create!(title: Faker::Lorem.sentence(1)[0..39],
                     description: Faker::Lorem.sentence(6),
