@@ -106,6 +106,31 @@ describe User do
     it { should_not be_valid }
   end
 
+  describe "when cellphone format is invalid" do
+    it "should be invalid" do
+      cellphones = ["+1 (222) 333-4444 5", "+44 (222) 333-4444",
+                    "string"]
+      cellphones.each do |invalid_cellphone|
+        @user.cellphone = invalid_cellphone
+        expect(@user).not_to be_valid
+      end
+    end
+  end
+
+  describe "when cellphone format is valid" do
+    it "should be valid" do
+      cellphones = ["+1 (222) 333-4444", "+1 (222) 333 4444",
+                    "+1 (222) 3334444", "+1 (222)3334444",
+                    "+1(222)3334444", "+12223334444", "12223334444",
+                    "2223334444", "222 333 4444", "222-333-4444",
+                    "+1 remove (222) random 333-4444 strings"]
+      cellphones.each do |valid_cellphone|
+        @user.cellphone = valid_cellphone
+        expect(@user).to be_valid
+      end
+    end
+  end
+
   describe "when default address is not present" do
     before { @user.default_address = " " }
     it { should_not be_valid }
