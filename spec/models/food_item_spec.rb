@@ -2,8 +2,7 @@ require 'spec_helper'
 
 describe FoodItem do
   before do
-    @food_item = FoodItem.new(title: "Pad Thai", description: "Delicious beef pad thai with yummy limes",
-                                              picture_url: "http://getgordo.com/pics/pad_thai.jpg", price: 7.99)
+    @food_item = FactoryGirl.create(:food_item)
   end
 
   subject { @food_item }

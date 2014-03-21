@@ -16,4 +16,12 @@ FactoryGirl.define do
     address "1 Western Ave"
     user
   end
+
+  factory :food_item do
+    title "Delicious Beef Pad Thai"
+    description "some delicious pad thai made with extra love"
+    picture_url "http://getgordo.com/pics/pad_thai.jpg"
+    price 7.99
+    active false
+  end
 end
