@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   # Alt  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(?:\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence:true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   VALID_CELLPHONE_REGEX = /\A\+1\d{10}\Z/
-  validates :cellphone, presence:true, uniqueness:true, format: { with: VALID_CELLPHONE_REGEX, message: "enter 10 digits" }
+  validates :cellphone, presence:true, uniqueness:true, format: { with: VALID_CELLPHONE_REGEX, message: "format should be (123) 555-1234" }
   validates :default_address, presence: true, length: { maximum: 100 }
   validates :password, length: { minimum: 6 }
 
