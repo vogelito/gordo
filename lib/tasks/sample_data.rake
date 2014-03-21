@@ -42,7 +42,7 @@ namespace :db do
     end
 
     50.times do
-      FoodItem.create!(title: Faker::Lorem.sentence(1),
+      FoodItem.create!(title: Faker::Lorem.sentence(1)[0..39],
                     description: Faker::Lorem.sentence(6),
                     picture_url: "http://getgordo.com/pics/pad_thai.jpg",
                     price: get_random_number(Gordo::Application::MIN_PRICE,Gordo::Application::MAX_PRICE,2))
