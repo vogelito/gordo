@@ -1,2 +1,11 @@
-<h1>FoodItems#new</h1>
-<p>Find me in app/views/food_items/new.html.erb</p>
+<% provide(:title, 'Add Food Item') %>
+<h1>Add Food Item</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@food_item) do |f| %>
+      <%= render 'fields', f: f %>
+      <%= f.submit "Add Food Item", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

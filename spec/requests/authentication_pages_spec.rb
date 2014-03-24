@@ -104,7 +104,7 @@ describe "Authentication" do
         end
       end
 
-     describe "in the Orders controller" do
+      describe "in the Orders controller" do
 
         describe "submitting to the create action" do
           before { post orders_path }
@@ -116,14 +116,20 @@ describe "Authentication" do
           specify { expect(response).to redirect_to(signin_path) }
         end
       end
-    end
 
-    describe "in the FoodItems controller" do
+      describe "in the FoodItems controller" do
 
-      describe "visitng the food item index" do
-        before { visit food_items_path }
-        it { should have_title('Sign in') }
+        describe "visitng the food item index" do
+          before { visit food_items_path }
+          it { should have_title('Sign in') }
+        end
+
+          describe "submitting to the create action" do
+            before { post food_items_path }
+            specify { expect(response).to redirect_to(signin_path) }
+          end
       end
+
     end
 
     describe "as wrong user" do
@@ -167,6 +173,11 @@ describe "Authentication" do
         before { delete food_item_path(FactoryGirl.create(:food_item)) }
         specify { expect(response).to redirect_to(root_url) }
       end
+
+      describe "submitting a POST request to the FoodItems#create action" do
+        before { post food_items_path(FactoryGirl.create(:food_item)) }
+        specify { expect(response).to redirect_to(root_url) }
+      end
     end
 
     describe "as non-admin user" do
@@ -188,6 +199,11 @@ describe "Authentication" do
 
       describe "submitting a DELETE request to the Users#destroy action for itself" do
         specify { expect { delete user_path(admin) }.not_to change(User, :count) }
+      end
+
+      describe "submitting a POST request to the FoodItems#create action" do
+        let(:food_item) { FactoryGirl.create(:food_item) }
+        specify { expect{ post food_items_path food_item: food_item.attributes }.to change(FoodItem, :count) }
       end
     end
   end
