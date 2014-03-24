@@ -16,15 +16,22 @@ namespace :db do
                  password: "12341234",
                  password_confirmation: "12341234",
                  admin: true)
+    User.create!(name: "Jimmy Boulerice",
+                 email: "jbboulerice@gmail.com",
+                 cellphone: "+16502223333",
+                 default_address: "Somewhere in awesome SF, San Francisco, CA 94133",
+                 password: "12341234",
+                 password_confirmation: "12341234",
+                 admin: true)
     User.create!(name: "Example User",
-                 email: "example@railstutorial.org",
+                 email: "example@getgordo.com",
                  cellphone: "+11234567890",
                  default_address: get_address,
                  password: "foobar",
                  password_confirmation: "foobar")
     99.times do |n|
       name  = Faker::Name.name
-      email = "example-#{n+1}@railstutorial.org"
+      email = "example-#{n+1}@getgordo.com"
       cellphone = "+1#{n.to_s.rjust(10, '0')}"
       password  = "password"
       User.create!(name: name,
