@@ -59,15 +59,21 @@ describe "User pages" do
     let!(:o1) { FactoryGirl.create(:order, user: user, address: "Unit 1") }
     let!(:o2) { FactoryGirl.create(:order, user: user, address: "Apt 2") }
 
-    before { visit user_path(user) }
+    before { get user_path(user) }
+    specify { expect(response).to redirect_to(signin_path) }
 
-    it { should have_content(user.name) }
-    it { should have_title(user.name) }
+    describe "logged in" do
 
-    describe "orders" do
-      it { should have_content(o1.address) }
-      it { should have_content(o2.address) }
-      it { should have_content(user.orders.count) }
+      before { sign_in user }
+
+      it { should have_content(user.name) }
+      it { should have_title(user.name) }
+
+      describe "orders" do
+        it { should have_content(o1.address) }
+        it { should have_content(o2.address) }
+        it { should have_content(user.orders.count) }
+      end
     end
   end
 
