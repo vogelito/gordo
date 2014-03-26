@@ -80,4 +80,18 @@ describe FoodItem do
       end
     end
   end
+
+  describe "food items view" do
+    before { FoodItem.delete_all }
+    let!(:older_food_item) do
+      FactoryGirl.create(:food_item, created_at: 1.day.ago)
+    end
+    let!(:newer_food_item) do
+      FactoryGirl.create(:food_item, created_at: 1.hour.ago)
+    end
+
+    it "should have the food items in the right order" do
+      expect(FoodItem.all.to_a).to eq [newer_food_item, older_food_item]
+    end
+  end
 end
