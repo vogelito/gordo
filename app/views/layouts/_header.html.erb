@@ -8,6 +8,7 @@
           <li><%= link_to "Help", help_path %></li>
           <% if signed_in? %>
             <% if current_user.admin? %>
+              <li><%= link_to "Users", users_path %></li>
               <li id="fat-menu" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   Food Items <b class="caret"></b>
@@ -19,7 +20,6 @@
               </li>
             <% end %>
 
-            <li><%= link_to "Users", users_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>

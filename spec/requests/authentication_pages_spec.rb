@@ -38,7 +38,7 @@ describe "Authentication" do
       before { valid_signin(user) }
 
       it { should have_title(user.name) }
-      it { should have_link('Users',       href: users_path) }
+      it { should_not have_link('Users',   href: users_path) }
       it { should have_link('Profile',     href: user_path(user)) }
       it { should have_link('Settings',    href: edit_user_path(user)) }
       it { should have_link('Sign out',    href: signout_path) }
@@ -56,8 +56,14 @@ describe "Authentication" do
       let(:admin) { FactoryGirl.create(:admin) }
       before { valid_signin(admin) }
 
+      it { should have_link('Users',       href: users_path) }
       it { should have_link('List Food Items',  href: food_items_path) }
       it { should have_link('Add Food Item',    href: new_food_item_path) }
+
+      describe "visiting the users index" do
+        before { visit users_path }
+        it { should have_title('All users') }
+      end
     end
   end
 
@@ -171,6 +177,11 @@ describe "Authentication" do
 
       describe "submitting a GET request to the Users#new action" do
         before { get new_user_path }
+        specify { expect(response).to redirect_to(root_url) }
+      end
+
+      describe "submitting a GET request to the Users#index action" do
+        before { get users_path }
         specify { expect(response).to redirect_to(root_url) }
       end
 
