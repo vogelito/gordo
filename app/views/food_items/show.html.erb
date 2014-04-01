@@ -1,0 +1,18 @@
+<% provide(:title, @food_item.title) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= image_tag @food_item.picture_url, height: '64', width: '64' %>
+        <%= @food_item.title %>
+      </h1>
+    </section>
+  </aside>
+  <div class="span8">
+    <span class="address"><%= @food_item.description %></span>
+    <span class="address">Price: $<%= @food_item.price %></span>
+    <span class="address">
+      <%= render 'toggle', food_item: @food_item %>
+    </span>
+  </div>
+</div>

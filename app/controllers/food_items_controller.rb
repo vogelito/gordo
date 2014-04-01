@@ -6,6 +6,15 @@ class FoodItemsController < ApplicationController
     @food_items = FoodItem.paginate(page: params[:page])
   end
 
+  def show
+    @food_item = FoodItem.find(params[:id])
+  end
+
+  def toggle_active
+    @food_item = FoodItem.find(params[:id])
+    @food_item.toggle!(:active)
+  end
+
   def new
     @food_item = FoodItem.new
   end

@@ -1,0 +1,8 @@
+<%= content_tag :span, is_active_text(food_item),
+                :id => "active_status_#{food_item.id}" %>
+| <%= link_to activate_link_text(food_item),
+              toggle_active_food_item_path(food_item),
+              :remote => true,
+              :id => "activate_link_#{food_item.id}" %>
+| <%= link_to "delete", food_item, method: :delete,
+              data: { confirm: "You sure?" } %>

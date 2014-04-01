@@ -28,7 +28,20 @@ describe "FoodItemPages" do
         FoodItem.paginate(page: 1).each do |food_item|
           expect(page).to have_selector('li', text: food_item.title)
           expect(page).to have_link('delete', href: food_item_path(food_item))
+          expect(page).not_to have_link('Deactivate')
+          expect(page).to have_link('Activate')
         end
+      end
+    end
+
+    describe "when activating a food item" do
+      before do
+        FoodItem.first.toggle!(:active)
+        visit food_items_path
+      end
+
+      it "should have a Deactivate link" do
+        expect(page).to have_link('Deactivate')
       end
     end
 

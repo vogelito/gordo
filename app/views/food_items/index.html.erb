@@ -8,8 +8,7 @@
     <li>
       <%= image_tag food_item.picture_url, height: '64', width: '64' %>
       <%= link_to food_item.title, food_item %>
-      | <%= link_to "delete", food_item, method: :delete,
-                                  data: { confirm: "You sure?" } %>
+      | <%= render 'toggle', food_item: food_item %>
     </li>
   <% end %>
 </ul>
