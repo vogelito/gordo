@@ -5,6 +5,7 @@ Gordo::Application.routes.draw do
   resources :food_items do
     get 'toggle_active', :on => :member
   end
+  resources :charges
 
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
