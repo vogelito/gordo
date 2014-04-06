@@ -1,5 +1,5 @@
 class FoodItem < ActiveRecord::Base
-  default_scope -> { order('created_at DESC') }
+  default_scope -> { order('active DESC, created_at DESC') }
   validates :title, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 140 }
   validates :picture_url, presence: true
