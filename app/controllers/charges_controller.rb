@@ -10,6 +10,7 @@ class ChargesController < ApplicationController
     )
 
     current_user.update_attribute(:stripe_customer_id, customer.id)
+    route_selector
 
   rescue Stripe::CardError => e
     flash[:error] = e.message

@@ -15,6 +15,14 @@ class FoodItemsController < ApplicationController
     @food_item.toggle!(:active)
   end
 
+  def active
+    @food_items = Array.new
+    FoodItem.all.each do |fi|
+      break if @food_items.length == 2
+      @food_items.push(fi) if fi.active
+    end
+  end
+
   def new
     @food_item = FoodItem.new
   end

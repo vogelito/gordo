@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      #TODO: maybe here we should do the credit card validation
       sign_in user
       redirect_back_or user
     else

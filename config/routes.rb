@@ -4,6 +4,9 @@ Gordo::Application.routes.draw do
   resources :orders, only: [:create, :destroy]
   resources :food_items do
     get 'toggle_active', :on => :member
+    collection do
+      get 'active'
+    end
   end
   resources :charges
 

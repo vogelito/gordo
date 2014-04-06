@@ -43,6 +43,9 @@ module SessionsHelper
   end
 
   def redirect_back_or(default)
+    t = true
+    route_selector if t
+    return if t
     redirect_to(session[:return_to] || default)
     session.delete(:return_to)
   end
@@ -51,4 +54,23 @@ module SessionsHelper
     session[:return_to] = request.url if request.get?
   end
 
+  def has_active_order
+    current_user.orders.each do |o|
+      #TODO: we need to check if an order is active
+      #return true if o.active
+    end
+    return false
+  end
+
+  def route_selector
+    if !signed_in?
+      redirect_to signing_url
+    elsif current_user.admin?
+      redirect_back_or(current_user)
+    elsif !current_user.stripe_customer_id?
+      redirect_to new_charge_path
+    elsif !has_active_order
+      redirect_to active_food_items_path
+    end
+  end
 end
