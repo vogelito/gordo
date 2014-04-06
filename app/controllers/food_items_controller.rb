@@ -1,6 +1,6 @@
 class FoodItemsController < ApplicationController
-  before_action :signed_in_user, only: [:index, :destroy, :create]
-  before_action :admin_user, only: [:index, :destroy, :create]
+  before_action :signed_in_user, only: [:index, :destroy, :create, :new, :toggle_active]
+  before_action :admin_user, only: [:index, :destroy, :create, :new, :toggle_active]
 
   def index
     @food_items = FoodItem.paginate(page: params[:page])
