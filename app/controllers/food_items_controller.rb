@@ -8,6 +8,7 @@ class FoodItemsController < ApplicationController
 
   def show
     @food_item = FoodItem.find(params[:id])
+    @order = Order.new
   end
 
   def toggle_active

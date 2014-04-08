@@ -12,7 +12,33 @@
     <span class="address"><%= @food_item.description %></span>
     <span class="address">Price: $<%= @food_item.price %></span>
     <span class="address">
-      <%= render 'toggle', food_item: @food_item %>
+      <%= render 'food_items/toggle', food_item: @food_item %>
     </span>
   </div>
 </div>
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :food_item_id, value: @food_item.id %>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address, value: @current_user.default_address %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br>
+    <%= f.text_field :quantity %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

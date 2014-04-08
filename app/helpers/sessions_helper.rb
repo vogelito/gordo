@@ -66,7 +66,9 @@ module SessionsHelper
     if !signed_in?
       redirect_to signing_url
     elsif current_user.admin?
-      redirect_back_or(current_user)
+      #TODO: checar bien que onda con admin
+      #redirect_back_or(current_user)
+      return
     elsif !current_user.stripe_customer_id?
       redirect_to new_charge_path
     elsif !has_active_order

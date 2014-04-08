@@ -1,16 +1,20 @@
 class OrdersController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
-  before_action :correct_user,   only: :destroy
+  before_action :correct_user,   only: [:destroy, :show]
 
   def create
     @order = current_user.orders.build(order_params)
     if @order.save
       flash[:success] = "Order created!"
-      redirect_to root_url
+      redirect_to order_path(@order)
     else
-      # TODO: remove...
-      @feed_items = []
-      render 'static_pages/home'
+      # Try to redirect him back to the Add Order page if we have a food_item_id
+      if @order.food_item_id != nil
+        @food_item = FoodItem.find(@order.food_item_id)
+        render :template => "food_items/show"
+      else
+        redirect_to user_path(@current_user)
+      end
     end
   end
 
@@ -23,7 +27,7 @@ class OrdersController < ApplicationController
   private
 
     def order_params
-      params.require(:order).permit(:address)
+      params.require(:order).permit(:address, :quantity, :food_item_id)
     end
 
     def correct_user
