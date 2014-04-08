@@ -18,10 +18,13 @@ class OrdersController < ApplicationController
     end
   end
 
-  #TODO: this shouldn't be allowed
   def destroy
-    @order.destroy
-    redirect_to root_url
+    if @order.paid || @order.delivered
+      flash[:error] = "You cannot delete an order you've paid for!"
+    else
+      @order.destroy
+    end
+    route_selector
   end
 
   private
