@@ -15,6 +15,8 @@ FactoryGirl.define do
   factory :order do
     address "1 Western Ave"
     user
+    food_item_id 1
+    quantity 10
   end
 
   factory :food_item do
