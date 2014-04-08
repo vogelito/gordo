@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :show]
   before_action :admin_user, only: [:index, :destroy]
   before_action :set_user, only: [:show]
+  before_action :route_selector, only: [:index, :show]
 
   # GET /users
   # GET /users.json
