@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :correct_user,   only: [:destroy, :show]
 
   def create
-    if get_active_order != nil
+    if get_pending_order != nil
       flash[:error] = "You already have an open order!"
       route_selector
       return

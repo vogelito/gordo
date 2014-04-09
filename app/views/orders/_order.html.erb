@@ -1,11 +1,16 @@
 <li>
-  <span class="address"><%= wrap(order.address) %></span>
+  <span class="title">Item: <%= pluralize(order.quantity, @food_item.title) %></span>
+  <span class="address">
+    Delivering to: <%= wrap(order.address) %>
+  </span>
   <span class="timestamp">
     Placed <%= time_ago_in_words(order.created_at) %> ago.
   </span>
-  <% if current_user?(order.user) %>
+  <span class="action">
+    <%= link_to "confirm order", charge_charges_path, method: :post,
+                                     title: "Yum yum!" %>
     <%= link_to "cancel", order, method: :delete,
-                                     data: { confirm: "You sure?" },
-                                     title: order.address %>
-  <% end %>
+                                     data: { confirm: "Are you sure you want to delete?" },
+                                     title: @food_item.title %>
+  </span>
 </li>

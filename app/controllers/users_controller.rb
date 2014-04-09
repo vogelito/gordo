@@ -15,7 +15,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @orders = @user.orders.paginate(page: params[:page])
+    @order = get_pending_order
+    @food_item = @order == nil ? nil : FoodItem.find(@order.food_item_id)
   end
 
   # GET /users/new

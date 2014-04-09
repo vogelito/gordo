@@ -9,12 +9,11 @@
     </section>
   </aside>
   <div class="span8">
-    <% if @user.orders.any? %>
-      <h3>Orders (<%= @user.orders.count %>)</h3>
+    <% if @order != nil %>
+      <h3>Open Orders</h3>
       <ol class="orders">
-        <%= render @orders %>
+        <%= render @order %>
       </ol>
-      <%= will_paginate @orders %>
     <% end %>
   </div>
 </div>

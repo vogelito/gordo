@@ -54,7 +54,7 @@ module SessionsHelper
     session[:return_to] = request.url if request.get?
   end
 
-  def get_active_order
+  def get_pending_order
     current_user.orders.each do |o|
       return o if o.pending
     end
@@ -81,11 +81,13 @@ module SessionsHelper
     end
 
     # We might have an order at this point
-    order = get_active_order
+    order = get_pending_order
     if order == nil
       redirect_or_return active_food_items_path
-    elsif order.pending
+    elsif !order.paid
       redirect_or_return user_path(@current_user)
+    elsif !order.delivered
+      redirect_or_return waiting_user_path current_user
     end
   end
 end
