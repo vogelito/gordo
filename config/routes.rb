@@ -8,7 +8,11 @@ Gordo::Application.routes.draw do
       get 'active'
     end
   end
-  resources :charges
+  resources :charges do
+    collection do
+      post 'charge'
+    end
+  end
 
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
