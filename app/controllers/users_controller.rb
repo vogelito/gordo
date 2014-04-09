@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :show]
+  before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :show, :waiting]
   before_action :signed_out_user, only: [:new, :create]
-  before_action :correct_user, only: [:edit, :update, :show]
+  before_action :correct_user, only: [:edit, :update, :show, :waiting]
   before_action :admin_user, only: [:index, :destroy]
-  before_action :set_user, only: [:show]
-  before_action :route_selector, only: [:index, :show]
+  before_action :set_user, only: [:show, :waiting]
+  before_action :route_selector, only: [:index, :show, :waiting]
 
   # GET /users
   # GET /users.json
@@ -63,6 +63,15 @@ class UsersController < ApplicationController
       flash[:success] = "User deleted."
     end
     redirect_to users_url
+  end
+
+  def waiting
+    @order = get_pending_order
+  end
+
+  def check_delivered
+     @order = get_pending_order
+     render :waiting
   end
 
   private

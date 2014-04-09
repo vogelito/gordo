@@ -1,5 +1,8 @@
 Gordo::Application.routes.draw do
-  resources :users
+  resources :users do
+    get 'waiting', :on => :member
+    get 'check_delivered'
+  end
   resources :sessions, only: [:new, :create, :destroy]
   resources :orders, only: [:create, :destroy]
   resources :food_items do
