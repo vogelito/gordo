@@ -45,7 +45,9 @@ namespace :db do
     users = User.all(limit: 6)
     50.times do
       address = get_address
-      users.each { |user| user.orders.create!(address: address) }
+      users.each { |user| user.orders.create!(address: address,
+                                              quantity: get_random_number(1,10,0),
+                                              food_item_id: get_random_number(1,20,0)) }
     end
 
     FoodItem.create!(title: "Beef Pad Thai",
