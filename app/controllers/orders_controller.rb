@@ -3,10 +3,15 @@ class OrdersController < ApplicationController
   before_action :correct_user,   only: [:destroy, :show]
 
   def create
+    if get_active_order != nil
+      flash[:error] = "You already have an open order!"
+      route_selector
+      return
+    end
     @order = current_user.orders.build(order_params)
     if @order.save
       flash[:success] = "Order created!"
-      redirect_to order_path(@order)
+      redirect_to user_path(@current_user)
     else
       # Try to redirect him back to the Add Order page if we have a food_item_id
       if @order.food_item_id != nil
