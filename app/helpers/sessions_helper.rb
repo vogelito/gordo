@@ -72,22 +72,27 @@ module SessionsHelper
   def route_selector
     if !signed_in?
       redirect_or_return signing_url
+      return
     elsif current_user.admin?
       #TODO: checar bien que onda con admin
       #redirect_back_or(current_user)
       return
     elsif !current_user.stripe_customer_id?
       redirect_or_return new_charge_path
+      return
     end
 
     # We might have an order at this point
     order = get_pending_order
     if order == nil
       redirect_or_return active_food_items_path
+      return
     elsif !order.paid
       redirect_or_return user_path(@current_user)
+      return
     elsif !order.delivered
       redirect_or_return waiting_user_path current_user
+      return
     end
   end
 end
