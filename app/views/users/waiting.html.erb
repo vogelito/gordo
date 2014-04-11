@@ -1,0 +1,19 @@
+<% if !@order.delivered %>
+  <% provide(:title, "Your Order is on its way") %>
+  <script>
+  jQuery(document).ready(function() {
+    setTimeout(function() {
+      $.get( "check_delivered", function(data) {
+        window.location.replace("/")
+      });
+    }, 5000);
+  });
+  </script>
+
+  <div id="display_ajax">
+    <h1>Your order is being delivered!</h1>
+    <%= image_tag('ajax-loader.gif') %>
+  </div>
+<% else %>
+  Delivered!
+<% end %>
