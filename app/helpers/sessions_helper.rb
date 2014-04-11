@@ -42,14 +42,6 @@ module SessionsHelper
     self.current_user = nil
   end
 
-  def redirect_back_or(default)
-    t = true
-    route_selector if t
-    return if t
-    redirect_to(session[:return_to] || default)
-    session.delete(:return_to)
-  end
-
   def store_location
     session[:return_to] = request.url if request.get?
   end
@@ -70,12 +62,15 @@ module SessionsHelper
   end
 
   def route_selector
+    puts "route_selector"
     if !signed_in?
       redirect_or_return signing_url
       return
     elsif current_user.admin?
-      #TODO: checar bien que onda con admin
-      #redirect_back_or(current_user)
+      if params[:controller] == "sessions"
+        redirect_to(session[:return_to] || current_user)
+        session.delete(:return_to)
+      end
       return
     elsif !current_user.stripe_customer_id?
       redirect_or_return new_charge_path
