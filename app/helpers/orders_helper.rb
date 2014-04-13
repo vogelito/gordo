@@ -1,5 +1,17 @@
 module OrdersHelper
 
+  def delivery_link_text(order)
+    order.delivered? ? 'Mark as Not Delivered' : 'Mark as Delivered'
+  end
+
+  def is_delivered_text(order)
+    order.delivered? ? 'Delivered' : 'Delivery Pending'
+  end
+
+  def is_paid_text(order)
+    order.paid? ? 'Paid' : 'Payment Pending'
+  end
+
   def wrap(address)
     sanitize(raw(address.split.map{ |s| wrap_long_string(s) }.join(' ')))
   end

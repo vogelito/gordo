@@ -1,6 +1,11 @@
 class OrdersController < ApplicationController
-  before_action :signed_in_user, only: [:create, :destroy]
+  before_action :signed_in_user, only: [:create, :destroy, :toggle_delivery]
   before_action :correct_user,   only: [:destroy, :show]
+  before_action :admin_user, only: [:index, :toggle_delivery]
+
+  def index
+    @orders = Order.paginate(page: params[:page])
+  end
 
   def create
     if get_pending_order != nil
@@ -21,6 +26,11 @@ class OrdersController < ApplicationController
         redirect_to user_path(@current_user)
       end
     end
+  end
+
+  def toggle_delivery
+    @order = Order.find(params[:id])
+    @order.toggle!(:delivered)
   end
 
   def destroy

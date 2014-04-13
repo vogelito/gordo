@@ -4,7 +4,9 @@ Gordo::Application.routes.draw do
     get 'check_delivered'
   end
   resources :sessions, only: [:new, :create, :destroy]
-  resources :orders, only: [:create, :destroy]
+  resources :orders, only: [:create, :destroy, :index] do
+    get 'toggle_delivery', :on => :member
+  end
   resources :food_items do
     get 'toggle_active', :on => :member
     collection do

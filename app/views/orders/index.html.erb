@@ -1,33 +1,23 @@
-<h1>Listing orders</h1>
+<% provide(:title, 'Orders') %>
+<h1>Orders</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Address</th>
-      <th>Lat</th>
-      <th>Lng</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<%= will_paginate %>
 
-  <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.address %></td>
-        <td><%= order.lat %></td>
-        <td><%= order.lng %></td>
-        <td><%= order.user_id %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul class="food_items">
+  <% @orders.each do |order| %>
+    <li>
+      <% fi = FoodItem.find(order.food_item_id) %>
+      <%= link_to pluralize(order.quantity, fi.title), fi %>
+      | <%= order.address %>
+      | <%= is_paid_text(order) %>
+      | <%= content_tag :span, is_delivered_text(order),
+                  :id => "delivery_status_#{order.id}" %>
+      | <%= link_to delivery_link_text(order),
+                  toggle_delivery_order_path(order),
+                  :remote => true,
+                  :id => "delivery_link_#{order.id}" %>
+    </li>
+  <% end %>
+</ul>
 
-<br>
-
-<%= link_to 'New Order', new_order_path %>
+<%= will_paginate %>

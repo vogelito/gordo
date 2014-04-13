@@ -1,0 +1,2 @@
+$("#delivery_link_<%= @order.id %>").text("<%= delivery_link_text(@order) %>");
+$("#delivery_status_<%= @order.id %>").text("<%= is_delivered_text(@order) %>");

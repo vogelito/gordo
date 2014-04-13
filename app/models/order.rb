@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
   belongs_to :user
-  default_scope -> { order('created_at DESC') }
+  default_scope -> { order('paid DESC, delivered ASC, created_at DESC') }
   validates :address, presence: true, length: { maximum: 100 }
   validates :user_id, presence: true
   validates :food_item_id, presence: true
