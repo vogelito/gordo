@@ -62,7 +62,6 @@ module SessionsHelper
   end
 
   def route_selector
-    puts "route_selector"
     if !signed_in?
       redirect_or_return signing_url
       return
