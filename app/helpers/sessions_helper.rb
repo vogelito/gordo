@@ -48,7 +48,8 @@ module SessionsHelper
 
   def get_pending_order
     current_user.orders.each do |o|
-      return o if o.pending
+      return o if !o.paid
+      return o if !o.delivered
     end
     return nil
   end
