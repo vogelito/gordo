@@ -9,5 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require bootstrap/bootstrap.css
+ *= require flat-ui.css 
+ *= require style.css
+ *= require responsive.css
  */

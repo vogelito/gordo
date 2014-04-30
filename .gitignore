@@ -14,9 +14,12 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+.vagrant
+ Vagrantfile
+ Gemfile.lock
 
 # Ignore other unneeded files.
-database.yml
+ database.yml
 doc/
 *.swp
 *~
@@ -24,3 +27,4 @@ doc/
 .DS_Store
 .idea
 .secret
+

@@ -2,21 +2,18 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <%= stylesheet_link_tag "application", media: "all",
                                            "data-turbolinks-track" => true %>
+   <link href='http://fonts.googleapis.com/css?family=Paytone+One' rel='stylesheet' type='text/css'>
+    <%#= stylesheet_link_tag "responsive.css" %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%#= javascript_include_tag "" %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
   </head>
   <body>
-    <%= render 'layouts/header' %>
-    <div class="container">
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-      <% end %>
-      <%= yield %>
-      <%= render 'layouts/footer' %>
-      <%= debug(params) if Rails.env.development? %>
-    </div>
+    <%= yield %>
   </body>
 </html>

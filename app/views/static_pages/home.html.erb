@@ -3,7 +3,157 @@
     window.location.href="/users/<%= @current_user.id %>"
   </script>
 <% else %>
-  <div class="center hero-unit">
+<section class="orange">
+        <div class="container main_container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <header>
+                        <nav class="navbar navbar-default" role="navigation">
+                          <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                              </button>
+                              <a class="navbar-brand" href="#"><img src="/assets/gordo-logo-198.png"/></a>
+                            </div>
+                        
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse custom_menu" id="bs-example-navbar-collapse-1">
+                              <ul class="nav navbar-nav">
+                                <li class="active"><a href="#">How it Works</a></li>
+                                <li><a href="#">About Gordo</a></li>
+                                <li><a href="#">My Account</a></li>
+                                <li><a href="#">Logout</a></li>
+                              </ul>
+                            </div><!-- /.navbar-collapse -->
+                          </div><!-- /.container-fluid -->
+                        </nav>
+                    </header>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                      <div id="carousel-example-captions" class="carousel slide" data-ride="carousel">
+                          <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-captions" data-slide-to="0" class=""></li>
+                            <li data-target="#carousel-example-captions" data-slide-to="1" class=""></li>
+                            <li data-target="#carousel-example-captions" data-slide-to="2" class="active"></li>
+                          </ol>
+                          <div class="carousel-inner">
+                            <div class="item">
+                              <img src="/assets/banner1.jpg"/>
+                              <div class="carousel-caption">
+                                <h2>Super fast and magical food delivery, wherever you are!</h2>
+                                <div class="order_btn"><a class="btn btn_purple btn-lg" href="#">Order Now!</a></div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <img src="/assets/banner1.jpg"/>
+                              <div class="carousel-caption">
+                                <h2>Super fast and magical food delivery, wherever you are!</h2>
+                                <div class="order_btn"><a class="btn btn_purple btn-lg" href="#">Order Now!</a></div>
+                              </div>
+                            </div>
+                            <div class="item active">
+                              <img src="/assets/banner1.jpg"/>
+                              <div class="carousel-caption">
+                                <h2>Super fast and magical food delivery, wherever you are!</h2>
+                                <div class="order_btn"><a class="btn btn_purple btn-lg" href="#">Order Now!</a></div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                    </div>
+                </div>
+        </div>
+  </section>
+  <section class="purple">
+    <div class="container main_container">
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+              <div class="about_gordo">
+                    <h2>About Gordo</h2>
+                    <div><img src="/assets/aboutIcons.png"/></div>
+                    <ul>
+                        <li><a href="#"><img width="103" src="/assets/GET IT ON-android.png"/></a></li>
+                        <li><a href="#"><img width="103" src="/assets/GET IT ON-ios.png"/></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-8 col-xs-12">
+              <div class="body_text about_gordo_text">
+                    <p>Gordo’s is all about food, now. This means delivery is super rapid, fun and hassle-free.</p> 
+                    <p>We make the decision thoughtless and delivery always quick and on time. It is not about choice, it is about convenience 
+                        and context.</p> 
+                    <p>We deliver food to customers quicker than competitors, such as GrubHub and Seamless, making it into a magical experience of 
+                    receiving your food right away and hassle-free.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+  <section class="orange bottom_h320">
+    <div class="container main_container">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="how_its_work">
+                  <h2>How it Works</h2>
+                    <p>In just three steps you’ll have fresh local meals delivered to your doorstep!</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+                    <div class="stepsCon">
+                      <ul>
+                          <li>
+                              <span><img src="/assets/step1-110.png"/></span>
+                                <p>Choose your meal and review your order.</p>
+                            </li>
+                            <li>
+                              <span><img src="/assets/step2-110.png"/></span>
+                                <p>Create a new account or simply login on your desktop computer or smartphone.</p>
+                            </li>
+                            <li>
+                              <span><img src="/assets/step3-110.png"/></span>
+                                <p>Confirm your payment and delivery information. Your Order is Complete! </p>
+                            </li> 
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+  </section>
+  <section class="orange">
+    <footer>
+      <div class="container main_container">
+             <div class="row">
+                <div class="col-md-7 col-xs-12">
+                    <ul class="footer_nav">
+                      <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li class="copyright">Gordo © 2014</li>                            
+                    </ul>
+                </div>
+                <div class="col-md-5 col-xs-12">
+                  <ul class="footer_social">
+                      <li><a href="#"><img src="/assets/social-googleplus-30.png"/></a></li>
+                        <li><a href="#"><img src="/assets/social-twitter-30.png"/></a></li>
+                        <li><a href="#"><img src="/assets/social-fb-30.png"/></a></li>
+                    </ul>
+                </div>
+             </div>
+         </div>
+    </footer>
+  </section>
+ <!--  <div class="center hero-unit">
     <h1>Gordo App</h1>
 
     <h2>
@@ -12,9 +162,14 @@
       - feeding you since 2014.
     </h2>
 
-    <%= link_to "Sign up now!", signup_path,
+    <%#= link_to "Sign up now!", signup_path,
                                 class: "btn btn-large btn-primary" %>
   </div>
 
-  <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+  <%#= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %> -->
+   <script>
+      $('.carousel').carousel({
+  interval: 2000
+})
+    </script>
 <% end %>

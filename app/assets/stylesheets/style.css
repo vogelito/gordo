@@ -1,0 +1,227 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	font-family:Arial, Helvetica, sans-serif;	
+}
+.main_container {
+	max-width:850px;
+}
+section.orange {
+	background:#f14020;	
+}
+section.purple {
+	background:#5d2979;
+}
+header {
+	max-height:100px;
+}
+header .navbar {
+	background:transparent;
+}
+
+header nav li a, header nav > li > a {
+	font-family: 'Paytone One', 'sans-serif';
+	color:#fff !important;
+	font-size:16px;
+	padding:0 15px 0 15px !important;
+	font-weight:normal !important;
+}
+header nav li a, header nav > li > a:last-child {
+	padding-right:0 !important;	
+}
+header nav li a:hover, header nav > li > a:hover {
+	color:#5d2979 !important;
+}
+header .navbar-brand {
+	margin-top:32px;
+	margin-left:-36px !important;	
+}
+.navbar-nav {
+	float:right;
+	margin-top:75px;	
+}
+.navbar-default .navbar-toggle:before {
+	color:#5d2979;
+	font-size: 26px;	
+}
+.navbar-default .navbar-toggle:hover:before,
+.navbar-default .navbar-toggle:focus:before {
+	  color: #5d2979;
+}
+.carousel {
+	height:540px;	
+}
+.carousel-caption {
+	width:100%;
+	position:relative;
+	left:0;
+	right:0;
+	bottom:400px;	
+}
+.carousel-caption h2 {
+	font-size:28px;
+	font-family: 'Paytone One', 'sans-serif';
+	text-shadow:none;
+	font-weight:normal;	
+}
+.btn_purple {
+	background:#5d2979;
+	color:#fff;
+	font-family: 'Paytone One', 'sans-serif';
+	font-weight:normal;
+	font-size:16px;
+	padding:0 30px;
+	line-height:35px;
+	height:39px;	
+}
+.order_btn {
+	margin-top:86px;	
+}
+.carousel-indicators {
+	left:0;
+	margin-left:0;
+	text-align:left;
+	bottom:0;	
+}
+.carousel-indicators li {
+	width:17px;
+	height:17px;
+	border:none;	
+	background:url("/assets/slider-inactive-16.png") 0 0 no-repeat;	
+}
+.carousel-indicators li.active {
+	width:18px;
+	height:18px;
+	border:none !important;
+	background:url("/assets/slider-active-16.png") 0 0 no-repeat;	
+}
+.about_gordo {
+	width:100%;
+	float:left;
+	margin-top:33px;	
+}
+.about_gordo h2 {
+	font-size:30px;
+	color:#fff;
+	font-family: 'Paytone One', 'sans-serif';
+	font-weight:normal;	
+	margin-bottom:28px;
+}
+.about_gordo ul {
+	list-style:none;
+	float:left;
+	padding:0;
+	margin:23px 0 0 0;	
+}
+.about_gordo ul li {
+	float:left;
+	margin-right:12px;	
+}
+.body_text {
+	color:#fff;
+	font-size:12px;	
+}
+.body_text p {
+	color:#fff;
+	font-size:12px;
+	line-height:16px;	
+}
+.about_gordo_text {
+	margin-top:99px;
+	margin-left:30px;	
+}
+section.purple {
+	min-height:320px;	
+}
+
+/*how its work*/
+.how_its_work {
+	width:100%;
+	float:left;
+	margin-top:37px;	
+}
+.how_its_work h2 {
+	font-size:30px;
+	color:#fff;
+	font-family: 'Paytone One', 'sans-serif';
+	font-weight:normal;
+	float:left;	
+}
+.how_its_work > p {
+	float:left;
+	color:#fff;
+	font-size:14px;
+	margin-top:45px;
+	margin-left:18px;
+}
+.stepsCon {
+	width:100%;
+	clear:both;
+	margin-top:18px;	
+}
+.stepsCon ul {
+	list-style:none;
+	padding:0;
+	margin:0;
+	float:left;
+	width:103%;	
+}
+.stepsCon ul li {
+	float:left;
+	width:33%;		
+}
+.stepsCon ul li span {
+	display:block;
+	float:left;
+	margin-right:20px;	
+}
+.stepsCon ul li p {
+	color:#fff;
+	font-size:13px;
+	line-height:16px;
+	margin-top:24px;	
+}
+.bottom_h320 {
+	min-height:320px;	
+}
+
+
+/*footer*/
+footer {
+	background:transparent;	
+}
+.footer_nav {
+	float:left;
+	list-style:none;
+	margin:0;
+	padding:0;	
+}
+.footer_nav li{
+	float:left;
+	margin-right:25px;	
+}
+.footer_nav li a {
+	color:#fff;	
+	font-family: 'Paytone One', 'sans-serif';
+	font-weight:normal;
+	font-size:16px;
+}
+.footer_nav li a:hover {
+	color:#5d2979;
+}
+.copyright {
+	color:#5d2979;	
+	font-family: 'Paytone One', 'sans-serif';
+	font-weight:normal;
+	font-size:16px;
+}
+.footer_social {
+	float:right;
+	list-style:none;	
+}
+.footer_social li {
+	float:left;
+	margin-right:18px;	
+}
+
+

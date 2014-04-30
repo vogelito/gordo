@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+
+  ruby '2.1.1'
 #ruby-gemset=gordo_rails_app
 
 gem 'rails', '4.0.3'
@@ -27,8 +28,9 @@ group :test do
 
   # OS X specific
   gem 'growl', '1.0.3'
-end
+end 
 
+gem 'therubyracer'
 gem 'sass-rails', '4.0.1'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.1'

@@ -1,0 +1,157 @@
+/* CSS for Vee Web Site Written By Abhishek Shukla */
+@media only screen and (min-width:720px) and (max-width:999px){
+    
+	 
+}
+
+@media only screen and (min-width:460px) and (max-width:719px){
+	.carousel-caption {
+		bottom:160px;	
+	}
+	.navbar-brand {
+		display:none;	
+	}
+	.carousel {
+		max-height:414px;	
+	}
+	.about_gordo {
+		text-align:center;	
+	}
+	.about_gordo ul {
+		width:100%;	
+	}
+	.about_gordo ul li {
+		display: inline-block;
+		float: none;
+		margin-right: 12px;	
+	}
+	.stepsCon ul li {
+		width:100%;
+		margin-bottom:15px;	
+	}
+	.how_its_work h2 {
+		width:100%;
+		text-align:center;	
+	}
+	.how_its_work > p {
+		width:100%;
+		margin:0;
+		text-align:center;	
+	}
+	.footer_nav li {
+		margin-right: 20px;	
+	}
+	
+	.carousel-inner img{
+		width:44%;	
+	}
+	
+   
+    
+}
+/*============================= for iphones  ========================*/
+@media only screen and (min-width:230px) and (max-width:459px){
+	.carousel-caption {
+		bottom:160px;	
+	}
+	.navbar-brand {
+		display:none;	
+	}
+	.carousel {
+		max-height:414px;	
+	}
+	.about_gordo {
+		text-align:center;	
+	}
+	.about_gordo ul {
+		width:100%;	
+	}
+	.about_gordo ul li {
+		display: inline-block;
+		float: none;
+		margin-right: 12px;	
+	}
+	.stepsCon ul li {
+		width:100%;
+		margin-bottom:15px;	
+	}
+	.how_its_work h2 {
+		width:100%;
+		text-align:center;	
+	}
+	.how_its_work > p {
+		width:100%;
+		margin:0;
+		text-align:center;	
+	}
+	.footer_nav li {
+		margin-right: 20px;	
+	}
+	.footer_social {
+		margin-top:-20px;	
+	}
+   
+}
+
+@media (max-width: 719px){
+	.custom_menu {
+		background:#FFF;
+		-moz-border-radius:6px;
+		-webkit-border-radius:6px;
+		border-radius:6px;
+		border:none;
+		padding:10px;
+		position:relative;
+		z-index:9;
+		overflow-y:visible;
+	}
+	.custom_menu:before {
+		width: 0; 
+		height: 0; 
+		border-left: 9px solid transparent;
+		border-right: 9px solid transparent;
+		border-bottom: 9px solid #fff;
+		content:" ";
+		position:absolute;
+		top:-9px;
+		right:24px;
+	}
+	
+	.navbar-collapse.in {
+		overflow-y:visible;	
+	}
+	
+	.custom_menu .nav {
+		width:100%;
+		margin-top:0;
+		margin:0;	
+	}
+	.custom_menu .nav li a {
+		color:#f14020 !important;
+		font-family: 'Arial';
+		font-size:16px;
+		line-height:32px;
+		display:block;	
+	}
+	.custom_menu .nav li a:hover, .custom_menu .nav li.active {
+		background:#5d2979;
+		border-radius:2px;
+		color:#fff !important;
+	}
+	.custom_menu .nav li.active a {
+		color:#fff !important;	
+	}
+	.menuArrow {
+		width: 0; 
+		height: 0; 
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-bottom: 5px solid black;
+		content:" ";
+		position:absolute;
+		top:10px;
+		left:10px;
+		background:black;
+	}
+	  
+}
