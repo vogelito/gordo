@@ -5,36 +5,36 @@
 <% else %>
 <section class="orange">
         <div class="container main_container">
-                <div class="row">
+                <!-- <div class="row">
                   <div class="col-md-12">
                     <header>
                         <nav class="navbar navbar-default" role="navigation">
-                          <div class="container-fluid">
+                          <div class="container-fluid"> -->
                             <!-- Brand and toggle get grouped for better mobile display -->
-                            <div class="navbar-header">
+                            <!-- <div class="navbar-header">
                               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                                 <span class="sr-only">Toggle navigation</span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                               </button>
-                              <a class="navbar-brand" href="#"><img src="/assets/gordo-logo-198.png"/></a>
-                            </div>
+                              <a class="navbar-brand" href="/signin"><img src="/assets/gordo-logo-198.png"/></a>
+                            </div> -->
                         
                             <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="collapse navbar-collapse custom_menu" id="bs-example-navbar-collapse-1">
+                            <!-- <div class="collapse navbar-collapse custom_menu" id="bs-example-navbar-collapse-1">
                               <ul class="nav navbar-nav">
                                 <li class="active"><a href="#">How it Works</a></li>
                                 <li><a href="#">About Gordo</a></li>
                                 <li><a href="#">My Account</a></li>
-                                <li><a href="#">Logout</a></li>
+                                <li><%#= link_to "Login", signin_path %></li>
                               </ul>
-                            </div><!-- /.navbar-collapse -->
-                          </div><!-- /.container-fluid -->
-                        </nav>
+                            </div> --><!-- /.navbar-collapse -->
+                          <!-- </div> --><!-- /.container-fluid -->
+                        <!-- </nav>
                     </header>
                   </div>
-                </div>
+                </div> -->
                 <div class="row">
                   <div class="col-md-12">
                       <div id="carousel-example-captions" class="carousel slide" data-ride="carousel">
@@ -48,21 +48,21 @@
                               <img src="/assets/banner1.jpg"/>
                               <div class="carousel-caption">
                                 <h2>Super fast and magical food delivery, wherever you are!</h2>
-                                <div class="order_btn"><a class="btn btn_purple btn-lg" href="#">Order Now!</a></div>
+                                <div class="order_btn"><a class="btn btn_purple btn-lg" href="/signin">Order Now!</a></div>
                               </div>
                             </div>
                             <div class="item">
                               <img src="/assets/banner1.jpg"/>
                               <div class="carousel-caption">
                                 <h2>Super fast and magical food delivery, wherever you are!</h2>
-                                <div class="order_btn"><a class="btn btn_purple btn-lg" href="#">Order Now!</a></div>
+                                <div class="order_btn"><a class="btn btn_purple btn-lg" href="/signin">Order Now!</a></div>
                               </div>
                             </div>
                             <div class="item active">
                               <img src="/assets/banner1.jpg"/>
                               <div class="carousel-caption">
                                 <h2>Super fast and magical food delivery, wherever you are!</h2>
-                                <div class="order_btn"><a class="btn btn_purple btn-lg" href="#">Order Now!</a></div>
+                                <div class="order_btn"><a class="btn btn_purple btn-lg" href="/signin">Order Now!</a></div>
                               </div>
                             </div>
                           </div>
@@ -136,7 +136,7 @@
              <div class="row">
                 <div class="col-md-7 col-xs-12">
                     <ul class="footer_nav">
-                      <li><a href="#">Contact Us</a></li>
+                      <li><a href="/contact">Contact Us</a></li>
                         <li><a href="#">FAQs</a></li>
                         <li><a href="#">Terms of Use</a></li>
                         <li class="copyright">Gordo © 2014</li>                            
