@@ -1,0 +1,52 @@
+<body class="body_orange">
+  <section class="orange">
+  	<div class="container main_container">
+    	<div class="row">
+        	<div class="col-md-12">
+            	<div class="mobile_login_steps">
+                	<div class="step_show">
+                    	<div class="step_left pull-left right_strip">
+                        	<h2>Are you</br>Sure?</h2>
+                        </div>
+                        <div class="step_center order_confirm">
+                        	<img src="/assets/mobile_step5.png"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-12">
+                <div class="cancellation_con">
+                	<div class="cancellation_form">
+                    	<h3>No Gordo 4 You?</h3>
+                        <h1>WHY?Not</h1>
+                        <form>
+                            <div class="btn-group select select-block">
+                            	<button class="btn dropdown-toggle clearfix btn-white" data-toggle="dropdown">
+                                <span class="filter-option pull-left">Meh, Not Hungry</span>&nbsp;<span class="caret"></span>
+                                </button><span class="dropdown-arrow dropdown-arrow-inverse"></span>
+                                <ul class="dropdown-menu dropdown-inverse" role="menu" style="max-height: 195px; overflow-y: auto; min-height: 108px;">
+                                	<li rel="0"><a tabindex="-1" href="#" class=""><span class="pull-left">Choose hero</span></a></li>
+                                    <li rel="1"><a tabindex="-1" href="#" class=""><span class="pull-left">Spider Man</span></a></li>
+                                    <li rel="2"><a tabindex="-1" href="#" class=""><span class="pull-left">Wolverine</span></a></li>
+                                    </ul>
+                                </div>
+                            <div class="form-group">
+                              <textarea class="form-control login-field" value="" placeholder="Password (Case Sensitive)" id="login-name"></textarea>
+                            </div>
+                        </form>
+                        <div class="confirm_cancel_btn">
+                        <p class="text">We would love to know how how we can improve Gordo for next time</p>
+                        <p><%= link_to "Confirm Cancellation", @order, method: :delete, title: @food_item.title, class: "btn btn_purple btn-lg btn-block" %></p>	
+                        <!-- <p><a href="#" class="btn btn_purple btn-lg btn-block">Confirm Cancellation</a></p> -->
+                    </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>	
+  </section>
+</body>

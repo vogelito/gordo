@@ -680,7 +680,7 @@ footer {
 	display:block;	
 }
 .rating_con ul li a:hover, .rating_con ul li a.active {
-	background:url(/assets/heart.png) 0 0 no-repeat;	
+	background:url(/assets//heart.png) 0 0 no-repeat;	
 }
 .selected_item_detail .reciept_box p {
 	color:#f14020;
@@ -776,7 +776,7 @@ footer {
 	float:left;
 	margin-top:-30px;	
 }
-.about_gordo h2 {
+.how_its_work_con .about_gordo h2 {
 	font-size:30px;
 	color:#fff;
 	font-family: 'Paytone One', 'sans-serif';
@@ -810,10 +810,10 @@ footer {
 .mobile_login_form {
 	clear:both;	
 }
-.about_gordo .mobile_login_form{
+.about_gordo .mobile_login_form {
 	padding:10px 0;
 }
 
-.login-field-icon.fui-user span, .login-field-icon.fui-lock span, .login-field-icon.fui-check-inverted span{
+.login-field-icon.fui-user span, .login-field-icon.fui-lock span, .login-field-icon.fui-check-inverted span, .switch-left span, .switch-right span{
 	display: none;
 }

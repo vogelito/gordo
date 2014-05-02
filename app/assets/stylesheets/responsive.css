@@ -101,9 +101,11 @@
 		border-radius:6px;
 		border:none;
 		padding:10px;
-		position:relative;
+		position:absolute;
 		z-index:9;
-		overflow-y:visible;
+		overflow-y:hidden;
+		width:100%;
+		left:20px;
 	}
 	.custom_menu:before {
 		width: 0; 
@@ -114,7 +116,7 @@
 		content:" ";
 		position:absolute;
 		top:-9px;
-		right:24px;
+		right:18px;
 	}
 	
 	.navbar-collapse.in {

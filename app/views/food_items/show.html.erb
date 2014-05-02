@@ -1,44 +1,134 @@
-<% provide(:title, @food_item.title) %>
-<div class="row">
+<%# provide(:title, @food_item.title) %>
+<!-- <div class="row">
   <aside class="span4">
     <section>
       <h1>
-        <%= image_tag @food_item.picture_url, height: '64', width: '64' %>
-        <%= @food_item.title %>
+        <%#= image_tag @food_item.picture_url, height: '64', width: '64' %>
+        <%#= @food_item.title %>
       </h1>
     </section>
   </aside>
   <div class="span8">
-    <span class="address"><%= @food_item.description %></span>
-    <span class="address">Price: $<%= @food_item.price %></span>
+    <span class="address"><%#= @food_item.description %></span>
+    <span class="address">Price: $<%#= @food_item.price %></span>
     <span class="address">
-      <%= render 'food_items/toggle', food_item: @food_item %>
+      <%#= render 'food_items/toggle', food_item: @food_item %>
     </span>
   </div>
 </div>
-<%= form_for(@order) do |f| %>
-  <% if @order.errors.any? %>
+<%#= form_for(@order) do |f| %>
+  <%# if @order.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+      <h2><%#= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
       <ul>
-      <% @order.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+      <%# @order.errors.full_messages.each do |msg| %>
+        <li><%#= msg %></li>
+      <%# end %>
       </ul>
     </div>
-  <% end %>
+  <%# end %>
 
-  <%= f.hidden_field :food_item_id, value: @food_item.id %>
+  <%#= f.hidden_field :food_item_id, value: @food_item.id %>
   <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address, value: @current_user.default_address %>
+    <%#= f.label :address %><br>
+    <%#= f.text_field :address, value: @current_user.default_address %>
   </div>
   <div class="field">
-    <%= f.label :quantity %><br>
-    <%= f.text_field :quantity %>
+    <%#= f.label :quantity %><br>
+    <%#= f.text_field :quantity %>
   </div>
   <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+    <%#= f.submit %>
+  </div>  -->
+<%# end %>
+
+
+
+<body class="body_orange">
+  <section class="orange">
+    <div class="container main_container">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="mobile_login_steps">
+                  <div class="step_show">
+                      <div class="step_left pull-left right_strip">
+                          <h2>Order</br>Details</h2>
+                        </div>
+                        <div class="step_center bottom_strip">
+                          <img src="/assets/mobile_step3.png"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+                <div class="food_detail_con">
+                  <%= form_for(@order) do |f| %>
+                    <div class="food_detail">
+                        <div class="food_item">
+                            <h2><%= @food_item.title %></h2>
+                            <a class="food_dish" href="#">
+                                <img src="<%= @food_item.picture_url %>"/> 
+                            </a>
+                        </div>
+                        <div class="selected_item_detail">
+                          <div class="tooltip bottom in" style="">
+                            <div class="tooltip-arrow"></div>
+                              <div class="tooltip-inner">
+                                <p class=""><%= @food_item.price %></p>            
+                                <p class="distance_time">10 Minutes</p>
+                              </div>
+                            </div>
+                            <p class="item_des"><%= @food_item.description %></p>
+                          </div>
+                       </div>
+                       <% count = 1 %>
+                        <div class="order_quanity">
+                            <p>Quantity</p>
+                            
+                            <div class="tagsinput-remove disable" id="sub"></div>
+                            <div class="quantity_count" id="count-quantity" value="1" > 1 </div>
+                            <div class="tagsinput-add" id="add"></div>
+                        </div>
+                        <%= f.hidden_field :food_item_id, value: @food_item.id %>
+                        <%= f.hidden_field :address, value: current_user.default_address %>
+                        <%= f.hidden_field :quantity, value: count %>
+                        <div class="deliverd_to">
+                            <h3>Delivered to:</h3>
+
+                            <p><a href="#" class="btn btn_white btn-lg btn-block"><%= current_user.default_address %></a></p>
+                            <!-- <p><a href="#" class="btn btn_purple btn-lg btn-block">Place Your Order!</a></p> -->
+                            <%= f.submit "Place Your Order!", class: "btn btn_purple btn-lg btn-block" %>
+                        </div>
+                    </div>
+                  <% end %>  
+                </div>
+          </div>
+        
+        </div>
+    </div>  
+  </section>
+  <script>
+            $(document).ready(function(){
+                counter = 1;
+                $('#add').click( function() {
+                    counter = $('#count-quantity').text();
+                    counter++ ;
+                    $('#count-quantity').text(counter);
+                    $('#order_quantity').val(counter);
+                   
+                });
+                $('#sub').click( function() {
+                    counter = $('#count-quantity').text();
+                    if(counter>=2)
+                    {
+                    counter-- ;
+                    $('#count-quantity').text(counter);
+                    $('#order_quantity').val(counter);
+                    }
+                });
+            });
+  </script>
+</body>

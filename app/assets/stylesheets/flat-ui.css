@@ -3477,8 +3477,8 @@ fieldset[disabled] .twitter-typeahead .tt-hint {
   position: relative;
   text-align: left;
   width: 80px;
-  -webkit-mask: url('../images/switch/mask.png') 0 0 no-repeat;
-  mask: url('../images/switch/mask.png') 0 0 no-repeat;
+  -webkit-mask: url('/assets/switch/mask.png') 0 0 no-repeat;
+  mask: url('/assets/switch/mask.png') 0 0 no-repeat;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -3569,8 +3569,8 @@ fieldset[disabled] .twitter-typeahead .tt-hint {
 }
 .switch-square {
   border-radius: 6px;
-  -webkit-mask: url('../images/switch/mask.png') 0 0 no-repeat;
-  mask: url('../images/switch/mask.png') 0 0 no-repeat;
+  -webkit-mask: url('/assets/switch/mask.png') 0 0 no-repeat;
+  mask: url('/assets/switch/mask.png') 0 0 no-repeat;
 }
 .switch-square > div.switch-off label {
   border-color: #7f8c9a;
