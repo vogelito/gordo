@@ -422,23 +422,24 @@ footer {
 	clear:both;	
 }
 .food_dish {
-	width:132px;
-	height:132px;
+	max-width:132px;
+	max-height:132px;
 	overflow:hidden;
 	display:inline-block;
 	position:relative;
-	z-index:3;
-		
+	z-index:3;		
 }
 .food_dish span {
-	position:absolute;
-	background:url(/assets/add_food.png) 0 0 no-repeat;
-	width:34px;
-	height:34px;
-	z-index:9;
-	display:block;
-	left:50px;
-	top:50px;	
+ position:absolute;
+ background:url(/assets/add_food.png) 0 0 no-repeat;
+ width:34px;
+ height:34px;
+ z-index:9;
+ display:block;
+ left: 50%;
+ top: 50%;
+ margin-top: -17px;
+ margin-left: -17px; 
 }
 .food_dish img {
 	border:5px solid #fff;
@@ -814,6 +815,48 @@ footer {
 	padding:10px 0;
 }
 
+/*alert*/
+.bs-callout {
+	margin: 20px 0;
+	padding: 10px;
+	border-left: 3px solid #eee;
+}
+.bs-callout-danger {
+	background-color: #f6d9d9;
+	border-color: #d9534f;
+}
+.absolute_error {
+	position:relative;
+	top:20px;
+	width:100%;
+	z-index:1;
+}
+
+
+.dropdown-menu li > a {
+	padding: 10px 15px 10px 15px !important;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#f14020 !important;
+	
+}
+.dropdown-menu li > a:hover {
+	background:#5d2979 !important;
+	color:#fff !important;	
+}
+.navbar-default .navbar-nav > .dropdown > a .caret{
+	border-top-color: #fff !important;
+	border-bottom-color: #fff !important;
+}
+
+.navbar-default .navbar-nav > .dropdown > a:hover .caret, .navbar-default .navbar-nav > .dropdown > a:focus .caret {
+	border-top-color: #fff !important;
+	border-bottom-color: #fff !important;
+}
+
 .login-field-icon.fui-user span, .login-field-icon.fui-lock span, .login-field-icon.fui-check-inverted span, .switch-left span, .switch-right span{
 	display: none;
 }
+
+
+
+

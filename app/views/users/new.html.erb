@@ -35,6 +35,7 @@
         	<div class="col-md-12">
             	<div class="mobile_login_form">
                         <%= form_for(@user) do |f| %>
+                            <%= render 'shared/error_messages', object: f.object %>
                             <div class="form-group">
                              <!--  <input type="text" class="form-control login-field" value="" placeholder="Full Name" id="login-name"> -->
                               <%= f.text_field :name, class: "form-control login-field", placeholder: "Full Name"  %>
@@ -46,17 +47,17 @@
                             <div class="form-group">
                               <!-- <input type="text" class="form-control login-field" value="" placeholder="Email Address" id="login-name"> -->
                               <%= f.text_field :email, class: "form-control login-field", placeholder: "Email Address" %>
-                              <label class="login-field-icon fui-check-inverted" for="login-pass"></label>
+                              <!-- <label class="login-field-icon fui-check-inverted" for="login-pass"></label> -->
                             </div>
                             <div class="form-group">
                              <!--  <input type="text" class="form-control login-field" value="" placeholder="Password" id="login-name"> -->
                              <%= f.password_field :password, class: "form-control login-field", placeholder: "Password" %>
-                              <label class="login-field-icon fui-check-inverted" for="login-pass"></label>
+                              <!-- <label class="login-field-icon fui-check-inverted" for="login-pass"></label> -->
                             </div>
                             <div class="form-group">
                               <!-- <input type="text" class="form-control login-field" value="" placeholder="Confirm Password" id="login-name"> -->
                               <%= f.password_field :password_confirmation, class: "form-control login-field", placeholder: "Confirm Password" %>
-                              <label class="login-field-icon fui-check-inverted" for="login-pass"></label>
+                              <!-- <label class="login-field-icon fui-check-inverted" for="login-pass"></label> -->
                             </div>
                             <div class="form-group">
                              <!--  <input type="text" class="form-control login-field" value="" placeholder="Mobile Phone Number" id="login-name"> -->

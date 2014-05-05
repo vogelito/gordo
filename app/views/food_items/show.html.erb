@@ -97,8 +97,9 @@
                         <%= f.hidden_field :quantity, value: count %>
                         <div class="deliverd_to">
                             <h3>Delivered to:</h3>
-
-                            <p><a href="#" class="btn btn_white btn-lg btn-block"><%= current_user.default_address %></a></p>
+                            <!-- <p><input type="text" class="form-control login-field text-center" value="" placeholder="Billing Adress (Include Zip-Code)" id="login-name"></p> -->
+                            <p><%= f.text_field :address, value: @current_user.default_address, class: "form-control login-field text-center" %></p>
+                            <!-- <p><a href="#" class="btn btn_white btn-lg btn-block"><%= current_user.default_address %></a></p> -->
                             <!-- <p><a href="#" class="btn btn_purple btn-lg btn-block">Place Your Order!</a></p> -->
                             <%= f.submit "Place Your Order!", class: "btn btn_purple btn-lg btn-block" %>
                         </div>

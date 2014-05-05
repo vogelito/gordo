@@ -30,14 +30,15 @@
                           <img src="/assets/mobile_step4.png"/>
                         </div>
                         <div class="order_confirm_text">
-                          <p><%= @food_item.title %></p>
-                            <p>$5.00 in 10 min</p>
+                          <p><%= order.quantity.to_s + "x " + @food_item.title %></p>
+                          <p><%= order.quantity * @food_item.price %> in 10 min </p>
                         </div>
                     </div>
                 </div>
                 
             </div>
         </div>
+        <% d = DateTime.now %>
         <div class="row">
           <div class="col-md-12">
                 <div class="food_detail_con">
@@ -52,8 +53,8 @@
                                     <div class="tooltip-arrow"></div>
                                     <div class="tooltip-inner">
                                       <div class="order_confirm_box">
-                                          <p class=""><%= DateTime.now %></p>
-                                            <h2>$5.00</h2>            
+                                          <p class=""><%= d.strftime("%A, %B %dth, %Y") %></p>
+                                            <h2>$<%= order.quantity * @food_item.price %></h2>            
                                             <p>Charged to Visa ending XX88</p>
                                         </div>
                                     </div>
@@ -64,7 +65,7 @@
                       <p class="cancel_topgap"></p>
                         <p><a href="/cancellation" class="btn btn_orange btn-lg btn-block">Cancel Your Order</a></p>
                         <!-- <p><a href="/charges/charge" class="btn btn_purple btn-lg btn-block">Place Your Order!</a></p> -->
-                        <p><%= link_to "Place Your Order!", charge_charges_path, method: :post,
+                        <p><%= link_to "Place Your Order!", charge_charges_path , method: :post,
                                      title: "Yum yum!", class: "btn btn_purple btn-lg btn-block" %></p>
                     </div>
                 </div>

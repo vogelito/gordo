@@ -197,5 +197,10 @@
 	.cancellation_con {
 		margin-top:80px;	
 	}
+	
+	.navbar-default .navbar-nav > .dropdown > a .caret{
+		border-top-color: #f14020 !important;
+		border-bottom-color: #f14020 !important;
+	}
 	  
 }

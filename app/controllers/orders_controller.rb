@@ -47,6 +47,11 @@ class OrdersController < ApplicationController
     @food_item = @order == nil ? nil : FoodItem.find(@order.food_item_id)
   end
 
+  # def receipt
+  #   @order = get_pending_order
+  #   @food_item = @order == nil ? nil : FoodItem.find(@order.food_item_id) 
+  # end
+
   private
 
     def order_params

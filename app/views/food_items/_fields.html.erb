@@ -1,13 +1,19 @@
 <%= render 'shared/error_messages', object: f.object %>
-
-<%= f.label :title %>
-<%= f.text_field :title %>
-
-<%= f.label :description %>
-<%= f.text_field :description %>
-
-<%= f.label :picture_url, "Picture Url" %>
-<%= f.text_field :picture_url %>
-
-<%= f.label :price %>
-<%= f.text_field :price %>
+<table bordor='0'>
+<tr>
+	<td><%= f.label :title %></td>
+	<td><%= f.text_field :title %></td>
+</tr>
+<tr>
+	<td><%= f.label :description %></td>
+	<td><%= f.text_field :description %></td>
+</tr>
+<tr>
+	<td><%= f.label :picture_url, "Picture Url" %></td>
+	<td><%= f.text_field :picture_url %></td>
+</tr>
+<tr>
+	<td><%= f.label :price %></td>
+	<td><%= f.text_field :price %></td>
+</tr>
+</table>
