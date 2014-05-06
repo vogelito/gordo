@@ -444,7 +444,8 @@ footer {
 .food_dish img {
 	border:5px solid #fff;
 	border-radius:150px;
-	width:100%;
+	width: 132px;
+	height: 132px;
 }
 .food_item h2 {
 	color:#fff;
@@ -856,7 +857,18 @@ footer {
 .login-field-icon.fui-user span, .login-field-icon.fui-lock span, .login-field-icon.fui-check-inverted span, .switch-left span, .switch-right span{
 	display: none;
 }
+.seprator {
+	color: #fff;
+	font-size: 30px;
+	line-height: 40px;
+	float: left;
+	margin-left: -5px;
+	margin-right: -5px;
 
+}
 
-
-
+.title {
+ font-size:30px;
+ color:#fff;
+ font-family: 'Paytone One', 'sans-serif';
+}

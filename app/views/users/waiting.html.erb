@@ -1,25 +1,37 @@
 <%# if !@order.delivered %>
   <%# provide(:title, "Your Order is on its way") %>
-   <script>
-  // jQuery(document).ready(function() {
-  //   setTimeout(function() {
-  //     $.get( "check_delivered", function(data) {
-  //       window.location.replace("/")
-  //     });
-  //   }, 5000);
-  // });
-  //</script>
+   <!--<script>
+   jQuery(document).ready(function() {
+     setTimeout(function() {
+       $.get( "check_delivered", function(data) {
+         window.location.replace("/")
+       });
+     }, 5000);
+   });
+  </script>
 
-  <!-- <div id="display_ajax">
+  <div id="display_ajax">
     <h1>Your order is being delivered!</h1>
     <%#= image_tag('ajax-loader.gif') %>
-  </div> -->
+  </div>
 <%# else %>
-  <!-- Delivered! -->
-<%# end %>
+  Delivered! 
+<%# end %>-->
+ 
 
+<% if !@order.delivered %>
+  <% provide(:title, "Your Order is on its way") %>
+   <script>
+   jQuery(document).ready(function() {
+     setTimeout(function() {
+       $.get( "check_delivered", function(data) {
+         window.location.replace("/")
+       });
+     }, 5000);
+   });
+  </script>
 
-<body class="body_orange">
+  <body class="body_orange">
    
   <section class="orange">
     <% d = DateTime.now %>
@@ -83,3 +95,11 @@
     </div>  
   </section>
 </body>
+<% else %>
+  Delivered! 
+<% end %>
+
+
+
+
+

@@ -103,7 +103,13 @@
 </section>
 
 <script>
-  $('.dropdown-toggle').click(function() {
-          $(this).parent().addClass('open');
+  // $('.dropdown-toggle').click(function() {
+  //         $(this).parent().addClass('open');
+  //   });
+
+  $( ".dropdown-toggle" ).toggle(function() {
+      $(this).parent().addClass('open');
+    }, function() {
+      $(this).parent().removeClass('open');
     });
   </script>
