@@ -31,7 +31,7 @@
                         </div>
                         <div class="order_confirm_text">
                           <p><%= order.quantity.to_s + "x " + @food_item.title %></p>
-                          <p>$<%= order.quantity * @food_item.price %> in 10 min </p>
+                          <p>$<%= '%.2f' % (order.quantity * @food_item.price) %> in 10 min </p>
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                                     <div class="tooltip-inner">
                                       <div class="order_confirm_box">
                                           <p class=""><%= d.strftime("%A, %B %dth, %Y") %></p>
-                                            <h2>$<%= order.quantity * @food_item.price %></h2>            
+                                            <h2>$<%= '%.2f' % (order.quantity * @food_item.price) %></h2>
                                             <p>Will charge Credit Card on file</p>
                                         </div>
                                     </div>
