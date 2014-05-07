@@ -31,7 +31,7 @@
                         </div>
                         <div class="order_confirm_text">
                           <p><%= order.quantity.to_s + "x " + @food_item.title %></p>
-                          <p><%= order.quantity * @food_item.price %> in 10 min </p>
+                          <p>$<%= order.quantity * @food_item.price %> in 10 min </p>
                         </div>
                     </div>
                 </div>
