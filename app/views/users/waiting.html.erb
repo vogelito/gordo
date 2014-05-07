@@ -79,9 +79,9 @@
                                     <div class="tooltip-arrow"></div>
                                     <div class="tooltip-inner">
                                       <div class="reciept_box">
-                                          <p class=""><%= d.strftime("%A, %B %dth, %Y") %></p>
+                                          <p class=""><%= d.strftime("%A, %B %-dth, %Y") %></p>
                                             <h2>$<%= '%.2f' % (@order.quantity * @food_item.price) %></h2>
-                                            <p>Charged to Credit Card on File</p>
+                                            <p>Charged credit card on file</p>
                                             <h3><%= @order.quantity.to_s + "x " + @food_item.title %></h3>
                                         </div>
                                     </div>
