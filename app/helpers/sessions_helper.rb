@@ -36,8 +36,10 @@ module SessionsHelper
   end
 
   def sign_out
-    current_user.update_attribute(:remember_token,
-                                  User.hash(User.new_remember_token))
+    if(current_user != nil)
+      current_user.update_attribute(:remember_token,
+                                    User.hash(User.new_remember_token))
+    end
     cookies.delete(:remember_token)
     self.current_user = nil
   end
