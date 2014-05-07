@@ -31,7 +31,7 @@
                         </div>
                         <div class="order_confirm_text">
                           <p><%= order.quantity.to_s + "x " + @food_item.title %></p>
-                          <p>$<%= '%.2f' % (order.quantity * @food_item.price) %> in 10 min </p>
+                          <p>$<%= '%.2f' % (order.quantity * @food_item.price) %> in <%= Gordo::Application::DELIVERY_PROMISE %>  min </p>
                         </div>
                     </div>
                 </div>

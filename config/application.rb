@@ -26,5 +26,6 @@ module Gordo
     MIN_PRICE = 5
     MAX_PRICE = 20
     MAX_QUANTITY = 10
+    DELIVERY_PROMISE = 15
   end
 end
