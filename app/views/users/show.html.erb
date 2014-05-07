@@ -1,39 +1,60 @@
 <% provide(:title, @user.name) %>
-<body class="body_orange">
-  <section class="orange">
-    <div class="container main_container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="mobile_login_logo mobile_logo_top">
-            <a class="mobile_logo" href="#"><img src="/assets/mobile_logo_top.png"/></a>
+<% if current_user.admin? %>
+<% provide(:title, @user.name) %>
+  <body class="body_orange">
+    <section class="orange">
+      <div class="container main_container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="mobile_login_logo mobile_logo_top">
+              <a class="mobile_logo" href="#"><img src="/assets/mobile_logo_top.png"/></a>
+            </div>
+            <div class="mobile_login_steps">
+              <div class="step_show">
+                <div class="step_left pull-left">
+                  <h2>User Info</h2>
+                </div>
+                <div class="step_center">
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="mobile_login_steps">
+        </div>
+        <div class="row">
+          <div class="col-md-12">
             <div class="step_show">
               <div class="step_left pull-left">
-                <h2>User Info</h2>
-              </div>
-              <div class="step_center">
+                <h2>
+                  <%= @user.name %><br/><br/>
+                  <%= @user.email %><br/><br/>
+                  <%= @user.cellphone %><br/><br/>
+                  <%= @user.default_address %>
+                </h2>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="step_show">
-            <div class="step_left pull-left">
-              <h2>
-                <%= @user.name %><br/><br/>
-                <%= @user.email %><br/><br/>
-                <%= @user.cellphone %><br/><br/>
-                <%= @user.default_address %>
-              </h2>
-            </div>
-          </div>
-        </div>
-      </div>
+    </section>
+  </body>
+<% else %>
+
+  <div class="row">
+    <!-- <aside class="span4">
+      <section>
+        <h1>
+          <%#= gravatar_for @user %>
+          <%#= @user.name %>
+        </h1>
+      </section>
+    </aside> -->
+    <div class="span8">
+      <% if @order != nil %>
+       <!--  <h3>Open Orders</h3> -->
+        <ol class="orders">
+          <%= render @order %>
+        </ol>
+      <% end %>
     </div>
-  </section>
-</body>
-
-
+  </div>
+<% end %>
