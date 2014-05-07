@@ -1,13 +1,72 @@
-<ul class="food_items">
-  <% if @food_items.length > 0 %>
+ <!-- <ul class="food_items">
+  <%# if @food_items.length > 0 %>
     Select your food item:
-    <% @food_items.each do |food_item| %>
+    <%# @food_items.each do |food_item| %>
       <li>
-        <%= link_to(image_tag(food_item.picture_url, height: '64', width: '64'), food_item) %>
-        <%= link_to food_item.title, food_item %>
+        <%#= link_to(image_tag(food_item.picture_url, height: '64', width: '64'), food_item) %>
+        <%#= link_to food_item.title, food_item %>
       </li>
-    <% end %>
-  <% else %>
+    <%# end %>
+  <%# else %>
     Gordo is not available right now for orders. Please try again later.
-  <% end %>
-</ul>
+  <%# end %>
+</ul>  -->
+
+
+
+<body class="body_orange">
+  
+  <section class="orange">
+    <div class="container main_container">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="mobile_login_steps">
+                  <div class="step_show">
+                      <div class="step_left pull-left right_strip">
+                          <h2>Meal </br>Selection</h2>
+                        </div>
+                        <div class="step_center">
+                          <img src="/assets/mobile_step2.png"/>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+      
+        <div class="row">
+          <div class="col-md-12">
+              <div class="food_selection">
+                  <div class="food_item">
+                      <!-- <a class="food_dish" href="#">
+                            <img src="/assets/food1.png"/>
+                            <span class="add_item"></span> -->
+                            <% if @food_items.length > 0 %>
+                              <% @food_items.each do |food_item| %>
+                                <%= link_to(food_item , class: "food_dish" ) do %>
+                                 <%= image_tag(food_item.picture_url) %>
+                                 <span class="add_item"></span>
+                               <% end %>
+                                <h2><%= link_to food_item.title, food_item %></h2>
+                              <% end %>
+                            <% else %>
+                              Gordo is not available right now for orders. Please try again later.
+                            <% end %>
+                        <!-- </a> -->
+                      <!-- <h2>Kale Me Silly</h2>
+                    </div> -->
+                    <!-- <div class="food_item">
+                      <a class="food_dish" href="#">
+                            <img src="/assets/food2.png"/>
+                            <span class="add_item"></span>
+                        </a>
+                      <h2>Pizza Me Now</h2>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        
+        </div>
+    </div>  
+  </section>
+</body>

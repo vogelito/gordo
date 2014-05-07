@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
 
   def new
+    if signed_in?
+      route_selector
+    end
   end
 
   def create

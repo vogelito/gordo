@@ -154,3 +154,24 @@ $.ajaxTransport('jsonpi', function(opts, originalOptions, jqXHR) {
 })
 
 }(window.jQuery)
+
+
+$(document).on('click', '.info_submit', function(event) {
+        $(this).prop('disabled', true); // Disable the submit button to prevent repeated clicks
+        var $form = $('#payment-form');
+        Stripe.card.createToken($form, stripeResponseHandler);
+        return false; // Prevent the form from submitting with the default action
+    });
+
+    var stripeResponseHandler = function(status, response) {
+        var $form = $('#payment-form');
+        if (response.error) {
+            $form.find('.payment-errors').text(response.error.message); // Show the errors on the form
+            $form.find('button').prop('disabled', false);
+        } else {
+            var token = response.id; // token contains id, last4, and card type
+            $form.append($('<input type="hidden" name="stripeToken" />').val(token)); // Insert the token into the form so it gets submitted to the server
+            $form.submit(); // and re-submit
+        }
+    };
+  

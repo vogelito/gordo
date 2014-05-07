@@ -1,43 +1,115 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<!-- <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "gordo app", root_path, id: "logo" %>
+      <%#= link_to "gordo app", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Help", help_path %></li>
-          <% if signed_in? %>
-            <% if current_user.admin? %>
-              <li><%= link_to "Users", users_path %></li>
-              <li><%= link_to "Orders", orders_path %></li>
+          <li><%#= link_to "Home", root_path %></li>
+          <li><%#= link_to "Help", help_path %></li>
+          <%# if signed_in? %>
+            <%# if current_user.admin? %>
+              <li><%#= link_to "Users", users_path %></li>
+              <li><%#= link_to "Orders", orders_path %></li>
               <li id="fat-menu" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   Food Items <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><%= link_to "List Food Items",  food_items_path %></li>
-                  <li><%= link_to "Add Food Item",    new_food_item_path %></li>
+                  <li><%#= link_to "List Food Items",  food_items_path %></li>
+                  <li><%#= link_to "Add Food Item",    new_food_item_path %></li>
                 </ul>
               </li>
-            <% end %>
+            <%# end %>
 
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                <li><%#= link_to "Settings", edit_user_path(current_user) %></li>
                 <li class="divider"></li>
                 <li>
-                  <%= link_to "Sign out", signout_path, method: "delete" %>
+                  <%#= link_to "Sign out", signout_path, method: "delete" %>
                 </li>
               </ul>
             </li>
-          <% else %>
-            <li><%= link_to "Sign in", signin_path %></li>
-          <% end %>
+          <%# else %>
+            <li><%#= link_to "Sign in", signin_path %></li>
+          <%# end %>
         </ul>
       </nav>
     </div>
   </div>
-</header>
+</header> -->
+
+<section class="orange">
+        <div class="container main_container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <header>
+                        <nav class="navbar navbar-default" role="navigation">
+                          <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                              </button>
+                              <a class="navbar-brand" href="/signin"><img src="/assets/gordo-logo-198.png"/></a>
+                            </div>
+                        
+
+
+
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse custom_menu" id="bs-example-navbar-collapse-1">
+                              <ul class="nav navbar-nav">
+                                <li class="active"><a href="/how_its_work">How it Works</a></li>
+                                <li><a href="/about">About</a></li>
+                                <% if signed_in? %>
+                                  <% if current_user.admin? %>
+                                    <li><%= link_to "Users", users_path %></li>
+                                    <li><%= link_to "Orders", orders_path %></li>
+                                  <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Food Items<b class="caret"></b></a>
+                                  <ul class="dropdown-menu">
+                                    <li><%= link_to "List Food Items",  food_items_path %></li>
+                                    <li><%= link_to "Add Food Item",    new_food_item_path %></li>
+                                  </ul>
+                                </li>
+                                  <% end %>
+
+                                  <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
+                                  <ul class="dropdown-menu">
+                                    <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                                    <li class="divider"></li>
+                                    <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+                                  </ul>
+                                </li>
+                                <% else %>
+                                <li><%= link_to "Signin", signin_path %></li>
+                                <% end %>
+                              </ul>
+                            </div><!-- /.navbar-collapse -->
+                          </div><!-- /.container-fluid -->
+                        </nav>
+                    </header>
+                  </div>
+                </div>
+              </div>
+</section>
+
+<script>
+  // $('.dropdown-toggle').click(function() {
+  //         $(this).parent().addClass('open');
+  //   });
+
+  $( ".dropdown-toggle" ).toggle(function() {
+      $(this).parent().addClass('open');
+    }, function() {
+      $(this).parent().removeClass('open');
+    });
+  </script>

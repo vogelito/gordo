@@ -1,16 +1,78 @@
-<li>
-  <span class="title">Item: <%= pluralize(order.quantity, @food_item.title) %></span>
+<!--  <li>
+  <span class="title">Item: <%#= pluralize(order.quantity, @food_item.title) %></span>
   <span class="address">
-    Delivering to: <%= wrap(order.address) %>
+    Delivering to: <%#= wrap(order.address) %>
   </span>
   <span class="timestamp">
-    Placed <%= time_ago_in_words(order.created_at) %> ago.
+    Placed <%#= time_ago_in_words(order.created_at) %> ago.
   </span>
   <span class="action">
-    <%= link_to "confirm order", charge_charges_path, method: :post,
+    <%#= link_to "confirm order", charge_charges_path, method: :post,
                                      title: "Yum yum!" %>
-    <%= link_to "cancel", order, method: :delete,
+    <%#= link_to "cancel", order, method: :delete,
                                      data: { confirm: "Are you sure you want to delete?" },
                                      title: @food_item.title %>
   </span>
-</li>
+</li -->
+
+
+<body class="body_orange">
+  <section class="orange">
+    <div class="container main_container">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="mobile_login_steps">
+                  <div class="step_show">
+                      <div class="step_left pull-left right_strip">
+                          <h2>Confirm</br>Details</h2>
+                        </div>
+                        <div class="step_center bottom_strip order_confirm">
+                          <img src="/assets/mobile_step4.png"/>
+                        </div>
+                        <div class="order_confirm_text">
+                          <p><%= order.quantity.to_s + "x " + @food_item.title %></p>
+                          <p><%= order.quantity * @food_item.price %> in 10 min </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <% d = DateTime.now %>
+        <div class="row">
+          <div class="col-md-12">
+                <div class="food_detail_con">
+                    <div class="food_detail">
+                        <div class="food_item">
+                            <a class="food_dish" href="#">
+                                <img src="<%= @food_item.picture_url %>"/> 
+                            </a>
+                        </div>
+                        <div class="selected_item_detail">
+                              <div class="tooltip bottom in" style="">
+                                    <div class="tooltip-arrow"></div>
+                                    <div class="tooltip-inner">
+                                      <div class="order_confirm_box">
+                                          <p class=""><%= d.strftime("%A, %B %dth, %Y") %></p>
+                                            <h2>$<%= order.quantity * @food_item.price %></h2>            
+                                            <p>Charged to Visa ending XX88</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="deliverd_to">
+                      <p class="cancel_topgap"></p>
+                        <p><a href="/cancellation" class="btn btn_orange btn-lg btn-block">Cancel Your Order</a></p>
+                        <!-- <p><a href="/charges/charge" class="btn btn_purple btn-lg btn-block">Place Your Order!</a></p> -->
+                        <p><%= link_to "Place Your Order!", charge_charges_path , method: :post,
+                                     title: "Yum yum!", class: "btn btn_purple btn-lg btn-block" %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        </div>
+    </div>  
+  </section>
+</body>

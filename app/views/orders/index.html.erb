@@ -7,8 +7,9 @@
   <% @orders.each do |order| %>
     <li>
       <% fi = FoodItem.find(order.food_item_id) %>
-      <%= link_to pluralize(order.quantity, fi.title), fi %>
-      | <%= order.address %>
+      <% #= link_to pluralize(order.quantity, fi.title), fi %>
+      <%= pluralize(order.quantity, fi.title) %>
+      | <%= link_to order.address, "http://maps.google.com/maps?q=#{order.address}", :target => "_blank" %>
       | <%= is_paid_text(order) %>
       | <%= content_tag :span, is_delivered_text(order),
                   :id => "delivery_status_#{order.id}" %>

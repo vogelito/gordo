@@ -101,9 +101,11 @@
 		border-radius:6px;
 		border:none;
 		padding:10px;
-		position:relative;
+		position:absolute;
 		z-index:9;
-		overflow-y:visible;
+		overflow-y:hidden;
+		width:100%;
+		left:20px;
 	}
 	.custom_menu:before {
 		width: 0; 
@@ -114,7 +116,7 @@
 		content:" ";
 		position:absolute;
 		top:-9px;
-		right:24px;
+		right:18px;
 	}
 	
 	.navbar-collapse.in {
@@ -153,5 +155,57 @@
 		left:10px;
 		background:black;
 	}
+	.how_its_work_con .stepsCon span {
+		position:relative;
+		z-index:3;	
+	}
+	.how_its_work_con .stepsCon span:after {
+		width:5px;
+		height:50px;
+		background:#fff;
+		content:"";	
+		position:absolute;
+		bottom:-45px;
+		left:40px;
+		z-index:1;
+	}
+	.how_its_work_con .stepsCon span.last:after {
+		width:0px;
+		height:0px;
+		background:none;
+	}
+	.mobile_login_logo {
+		display:block;	
+	}
+	.mobile_splash {
+		display:block;	
+	}
+	
+	/*food selection*/
+	.step_show .step_left h2 {
+		margin-top:3px;	
+	}
+	.food_selection {
+		margin-top:30px;	
+	}
+	.food_dish {
+		margin-top:10px;	
+	}
+	.order_confirm_text h2 {
+		margin-top:3px;
+	}
+	.cancellation_con {
+		margin-top:80px;	
+	}
+	
+	.navbar-default .navbar-nav > .dropdown > a .caret{
+		border-top-color: #f14020 !important;
+		border-bottom-color: #f14020 !important;
+	}
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+	  background:#5d2979 !important;
+	  color:#fff !important; 
+	 }
 	  
 }

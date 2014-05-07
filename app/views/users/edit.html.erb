@@ -1,14 +1,63 @@
-<% provide(:title, "Edit user") %>
-<h1>Update your profile</h1>
+<%# provide(:title, "Edit user") %>
+<!-- <h1>Update your profile</h1>
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
-      <%= render 'fields', f: f %>
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
-    <% end %>
+    <%#= form_for(@user) do |f| %>
+      <%#= render 'fields', f: f %>
+      <%#= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <%# end %>
 
-    <%= gravatar_for @user %>
+    <%#= gravatar_for @user %>
     <a href="http://gravatar.com/emails" target="_blank">change</a>
   </div>
-</div>
+</div> -->
+
+
+
+<body class="body_orange">
+  <section class="orange">
+  	<div class="container main_container">
+        <div class="row">
+        	<div class="col-md-12">
+            	<h2 class="title">Update your profile</h2>
+            	<div class="mobile_login_form">
+                        <%= form_for(@user) do |f| %>
+                            <div class="form-group">
+                              <!-- <input type="text" class="form-control login-field" value="" placeholder="Name" id="login-name"> -->
+                              <%= f.text_field :name, class: "form-control login-field", placeholder: "Name" %>
+                            </div>
+                            <div class="form-group">
+                              <!-- <input type="text" class="form-control login-field" value="" placeholder="Email Address" id="login-name"> -->
+                              <%= f.text_field :email, class: "form-control login-field", placeholder: "Email Address" %>
+                            </div>
+                            <div class="form-group">
+                              <!-- <input type="text" class="form-control login-field" value="" placeholder="Cellphone" id="login-name"> -->
+                              <%= f.text_field :cellphone, class: "form-control login-field", placeholder: "Cellphone" %>
+                            </div>
+                            <div class="form-group">
+                              <!-- <input type="text" class="form-control login-field" value="" placeholder="Address" id="login-name"> -->
+                              <%= f.text_field :default_address, class: "form-control login-field", placeholder: "Address" %>
+                            </div>
+                            <div class="form-group">
+                              <!-- <input type="text" class="form-control login-field" value="" placeholder="Password" id="login-name"> -->
+                              <%= f.password_field :password, class: "form-control login-field", placeholder: "Password" %>
+                            </div>
+                            <div class="form-group">
+                              <!-- <input type="text" class="form-control login-field" value="" placeholder="Confirm Password" id="login-name"> -->
+                              <%= f.password_field :password_confirmation, class: "form-control login-field", placeholder: "Confirm Password" %>
+                            </div>
+                            <%= f.submit "Save changes", class: "btn btn_purple btn-lg btn-block" %>
+                            <!-- <a class="btn btn_purple btn-lg btn-block" href="#">Save Changes</a> -->
+                         <% end %>
+                         <%#= gravatar_for @user %>
+    					<!-- <a href="http://gravatar.com/emails" target="_blank">change</a> -->
+                </div>
+                
+            </div>
+        </div>
+        
+        </div>
+    </div>	
+  </section>
+</body>

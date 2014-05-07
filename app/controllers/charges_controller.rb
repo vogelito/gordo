@@ -1,4 +1,5 @@
 class ChargesController < ApplicationController
+  skip_before_filter :verify_authenticity_token, :only => [:create]
 
   def new
   end
@@ -9,7 +10,6 @@ class ChargesController < ApplicationController
       :description => "Payments for: #{current_user.name}",
       :card  => params[:stripeToken]
     )
-
     current_user.update_attribute(:stripe_customer_id, customer.id)
     route_selector
 

@@ -67,10 +67,12 @@ class UsersController < ApplicationController
 
   def waiting
     @order = get_pending_order
+    @food_item = @order == nil ? nil : FoodItem.find(@order.food_item_id)
   end
 
   def check_delivered
      @order = get_pending_order
+     @food_item = @order == nil ? nil : FoodItem.find(@order.food_item_id)
      render :waiting
   end
 

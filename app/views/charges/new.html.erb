@@ -1,10 +1,87 @@
-<%= form_tag charges_path do %>
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+<%#= form_tag charges_path do %>
+  <!--<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%#= Rails.configuration.stripe[:publishable_key] %>"
           data-label="Enter Credit Card Info"
           data-name="Gordo"
           data-description="Food Now!"
           data-email="<%= current_user.email %>"
           data-allow-remember-me=false
-          data-panel-label="Submit"></script>
-<% end %>
+          data-panel-label="Submit"></script>-->
+<%# end %>
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+  // This identifies your website in the createToken call below
+  Stripe.setPublishableKey('pk_test_Qd6ybxPeOuC9VsppfUWBbjXr');
+  // 
+</script>
+
+<body class="body_orange">
+	<section class="orange">
+  	<div class="container main_container">
+    	<div class="row">
+        	<div class="col-md-12">
+            	<div class="mobile_login_logo mobile_logo_top">
+                    <a class="mobile_logo" href="#"><img src="/assets/mobile_logo_top.png"/></a>
+                </div>
+            	<div class="mobile_login_steps">
+                	<div class="step_show">
+                    	<div class="step_left pull-left">
+                        	<h2>Login/ </br>Sign Up</h2>
+                        </div>
+                        <div class="step_center">
+                        	<img src="/assets/mobile_step1.png"/>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mobile_login_form">
+                  
+            <form action="/charges" method="post" id="payment-form">
+              <span class="payment-errors"></span>
+                      <div class="row">
+                        <div class="col-xs-8">
+                            <div class="form-group">
+                              <input type="text" size="20" data-stripe="number" class="form-control login-field" value="" placeholder="Credit Card Number"/>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                          <div class="form-group">
+                              <input type="text" size="4" data-stripe="cvc" class="form-control login-field" value="" placeholder="CCV"/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-xs-6">
+                            <div class="form-group">
+                                <input type="text" size="2" data-stripe="exp-month" class="form-control login-field" value="" placeholder="Expiraton(Month)"/>
+                            </div>
+                        </div>
+                        <div class="seprator">
+                            /
+                        </div>
+                        <div class="col-xs-6">
+                          <div class="form-group">
+                              <input type="text" size="2" data-stripe="exp-year" class="form-control login-field" value="" placeholder="Expiraton(Year)"/>
+                          </div>
+                        </div>
+
+                      </div>
+                      
+                  <button type="submit" class="btn btn_purple btn-lg btn-block info_submit">Order Now!</button>
+                
+            </form>
+          </div>
+        </div>
+      </div>
+        
+        
+    </div>	
+  </section>
+</body>

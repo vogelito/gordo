@@ -14,3 +14,17 @@
  *= require style.css
  *= require responsive.css
  */
+
+
+#error_explanation {
+  color: #FDFDFD;
+
+}
+
+#error_explanation ul li {
+  list-style: none;
+}
+
+#error_explanation ul {
+  padding-left: 0px;
+}

@@ -1,19 +1,70 @@
-<% provide(:title, "Sign in") %>
-<h1>Sign in</h1>
+<%# provide(:title, "Sign in") %>
+<!-- <h1>Sign in</h1> -->
 
-<div class="row">
+<!-- <div class="row">
   <div class="span6 offset3">
-    <%= form_for(:session, url: sessions_path) do |f| %>
+    <%#= form_for(:session, url: sessions_path) do |f| %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+      <%#= f.label :email %>
+      <%#= f.text_field :email %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%#= f.label :password %>
+      <%#= f.password_field :password %>
 
-      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
-    <% end %>
+      <%#= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+    <%# end %>
 
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+    <p>New user? <%#= link_to "Sign up now!", signup_path %></p>
   </div>
-</div>
+</div> -->
+
+
+<body class="body_orange">
+  <section class="orange">
+      <div class="container main_container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mobile_login_steps">
+                    <div class="step_show">
+                        <div class="step_left pull-left">
+                            <h2>Login/ </br>Sign Up</h2>
+                          </div>
+                          <div class="step_center">
+                            <img src="/assets/mobile_step1.png"/>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="mobile_login_logo">
+                      <a class="mobile_logo" href="#"><img src="/assets/mobile_logo.png"/></a>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+                <div class="mobile_login_form">
+                    <p>Don’t Have an Account? <a href="/signup">Sign Up</a> Now!</p>
+                          <%= form_for(:session, url: sessions_path) do |f| %>
+                              <div class="form-group">
+                                <!-- <input type="text" class="form-control login-field" value="" placeholder="Email Address" id="login-name"> -->
+                                <%= f.text_field :email, class: "form-control login-field", placeholder: "Email Address" %>
+                                <label class="login-field-icon fui-user" for="login-name"></label>
+                              </div>
+                              <div class="form-group">
+                                <!-- <input type="text" class="form-control login-field" value="" placeholder="Password (Case Sensitive)" id="login-name"> -->
+                                <%= f.password_field :password, class: "form-control login-field", placeholder: "Password (Case Sensitive)" %>
+                                <label class="login-field-icon fui-lock" for="login-name"></label>
+                              </div>
+                              <p>Forgot <a href="#">Username</a> / <a href="#">Password</a>? </p>
+                              <%= f.submit "Sign in", class: "btn btn_purple btn-lg btn-block" %>
+                              <!-- <a class="btn btn_purple btn-lg btn-block" href="#">Log in</a> -->
+                          <% end %>
+                          <!-- </form> -->
+                  </div>
+                  
+              </div>
+          </div>
+          
+          </div>
+      </div>  
+  </section>
+</body>
