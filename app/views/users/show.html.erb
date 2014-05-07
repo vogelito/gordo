@@ -20,18 +20,14 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <div class="mobile_login_form">
-            <div class="form-group">
-              <%= @user.name %>
-            </div>
-            <div class="form-group">
-              <%= @user.email %>
-            </div>
-            <div class="form-group">
-              <%= @user.cellphone %>
-            </div>
-            <div class="form-group">
-              <%= @user.default_address %>
+          <div class="step_show">
+            <div class="step_left pull-left">
+              <h2>
+                <%= @user.name %><br/><br/>
+                <%= @user.email %><br/><br/>
+                <%= @user.cellphone %><br/><br/>
+                <%= @user.default_address %>
+              </h2>
             </div>
           </div>
         </div>
