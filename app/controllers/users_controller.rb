@@ -75,6 +75,14 @@ class UsersController < ApplicationController
      render :waiting
   end
 
+  def check_delivered_order
+    status = get_pending_order == nil ? true : false
+    respond_to do |format|
+      msg = {:message => status }
+      format.json { render :json => msg }
+    end 
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

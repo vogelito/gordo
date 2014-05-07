@@ -55,7 +55,7 @@ module SessionsHelper
     end
     return nil
   end
-
+  
   def redirect_or_return(target)
     target_path = Rails.application.routes.recognize_path(target)
     return if (params[:controller] == target_path[:controller] &&
