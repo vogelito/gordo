@@ -447,7 +447,7 @@ footer {
 	width: 132px;
 	height: 132px;
 }
-.food_item h2 {
+.food_item h2, .food_item h2 a  {
 	color:#fff;
 	font-size:24px;
 	font-family: 'Paytone One', 'sans-serif';
@@ -871,4 +871,8 @@ footer {
  font-size:30px;
  color:#fff;
  font-family: 'Paytone One', 'sans-serif';
+}
+.cancellation_form span.dropdown-arrow {
+	margin-top: 3px !important;
+
 }

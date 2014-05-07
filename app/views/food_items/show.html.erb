@@ -43,8 +43,8 @@
   </div>  -->
 <%# end %>
 
-
-
+<% max = Gordo::Application::MAX_QUANTITY %>
+<input id="max" name="max" type="hidden" value="<%= max %>" />
 <body class="body_orange">
   <section class="orange">
     <div class="container main_container">
@@ -113,13 +113,18 @@
   </section>
   <script>
             $(document).ready(function(){
+                 
                 counter = 1;
+                
                 $('#add').click( function() {
                     counter = $('#count-quantity').text();
+                    max = $('#max').val()
+                    if(parseInt(counter)< max)
+                    {
                     counter++ ;
                     $('#count-quantity').text(counter);
                     $('#order_quantity').val(counter);
-                   
+                   }
                 });
                 $('#sub').click( function() {
                     counter = $('#count-quantity').text();

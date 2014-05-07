@@ -207,5 +207,15 @@
 	  background:#5d2979 !important;
 	  color:#fff !important; 
 	 }
+	 .alert {
+	 	margin-bottom: 65px;
+	 }
+	 .form-control {
+	 	font-size:13px;
+	 }
+	 .credit_cvv {
+	 	margin-left: -9px;
+		width: 55px;
+	 }
 	  
 }
