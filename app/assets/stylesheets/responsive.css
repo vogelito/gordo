@@ -183,7 +183,8 @@
 	
 	/*food selection*/
 	.step_show .step_left h2 {
-		margin-top:3px;	
+		margin-top:3px;
+		margin-left:24px;	
 	}
 	.food_selection {
 		margin-top:30px;	
@@ -194,6 +195,7 @@
 	.order_confirm_text h2 {
 		margin-top:3px;
 	}
+	
 	.cancellation_con {
 		margin-top:80px;	
 	}
@@ -217,5 +219,11 @@
 	 	margin-left: -9px;
 		width: 55px;
 	 }
+	 .right_strip:before {
+		top:43%;	 
+	}
+	.food_detail {
+		margin-top:5px;	
+	}
 	  
 }

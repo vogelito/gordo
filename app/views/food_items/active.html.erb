@@ -37,17 +37,19 @@
         <div class="row">
           <div class="col-md-12">
               <div class="food_selection">
-                  <div class="food_item">
+                  
                       <!-- <a class="food_dish" href="#">
                             <img src="/assets/food1.png"/>
                             <span class="add_item"></span> -->
                             <% if @food_items.length > 0 %>
                               <% @food_items.each do |food_item| %>
+                              <div class="food_item">
                                 <%= link_to(food_item , class: "food_dish" ) do %>
-                                 <%= image_tag(food_item.picture_url) %>
-                                 <span class="add_item"></span>
-                               <% end %>
+                                  <%= image_tag(food_item.picture_url) %>
+                                  <span class="add_item"></span>
+                                <% end %>
                                 <h2><%= link_to food_item.title, food_item %></h2>
+                              </div>
                               <% end %>
                             <% else %>
                               Gordo is not available right now for orders. Please try again later.
@@ -62,7 +64,7 @@
                         </a>
                       <h2>Pizza Me Now</h2>
                     </div> -->
-                </div>
+                <!-- </div> -->
             </div>
         </div>
         

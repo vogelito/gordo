@@ -48,8 +48,10 @@
 <body class="body_orange">
   <section class="orange">
     <div class="container main_container">
+      <%= form_for(@order) do |f| %>
       <div class="row">
           <div class="col-md-12">
+            <h2 class="dish_title"><%= @food_item.title %></h2>
               <div class="mobile_login_steps">
                   <div class="step_show">
                       <div class="step_left pull-left right_strip">
@@ -65,10 +67,10 @@
         <div class="row">
           <div class="col-md-12">
                 <div class="food_detail_con">
-                  <%= form_for(@order) do |f| %>
+                  
                     <div class="food_detail">
                         <div class="food_item">
-                            <h2><%= @food_item.title %></h2>
+                            
                             <a class="food_dish" href="#">
                                 <img src="<%= @food_item.picture_url %>"/> 
                             </a>
@@ -97,18 +99,15 @@
                         <%= f.hidden_field :quantity, value: count %>
                         <div class="deliverd_to">
                             <h3>Delivered to:</h3>
-                            <!-- <p><input type="text" class="form-control login-field text-center" value="" placeholder="Billing Adress (Include Zip-Code)" id="login-name"></p> -->
                             <p><%= f.text_field :address, value: @current_user.default_address, class: "form-control login-field text-center" %></p>
-                            <!-- <p><a href="#" class="btn btn_white btn-lg btn-block"><%= current_user.default_address %></a></p> -->
-                            <!-- <p><a href="#" class="btn btn_purple btn-lg btn-block">Place Your Order!</a></p> -->
                             <%= f.submit "Place Your Order!", class: "btn btn_purple btn-lg btn-block" %>
                         </div>
                     </div>
-                  <% end %>  
                 </div>
           </div>
         
         </div>
+     <% end %>  
     </div>  
   </section>
   <script>
@@ -124,7 +123,11 @@
                     counter++ ;
                     $('#count-quantity').text(counter);
                     $('#order_quantity').val(counter);
-                   }
+                    }
+                    else
+                    {
+                      alert("That is your Maximum Quantity Limit, Please Place the Order");
+                    }
                 });
                 $('#sub').click( function() {
                     counter = $('#count-quantity').text();
@@ -133,6 +136,10 @@
                     counter-- ;
                     $('#count-quantity').text(counter);
                     $('#order_quantity').val(counter);
+                    }
+                    else
+                    {
+                      alert("That is your Minimum Quantity Limit, Please Place the Order");
                     }
                 });
             });

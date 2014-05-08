@@ -260,6 +260,9 @@ footer {
 /*mobile login*/
 .step_show {
 	width:100%;
+	float:left;
+	position:absolute;
+	left:0;
 	
 }
 .step_show .step_left {
@@ -272,7 +275,7 @@ footer {
 	font-family: 'Paytone One', 'sans-serif';
 	float:left;
 	margin-top:-5px;
-	margin-left:23px;
+	margin-left:40px;
 	line-height:20px;	
 }
 .step_show .step_center {
@@ -280,21 +283,20 @@ footer {
 	width:100%;
 	text-align:center;
 	left:0;
-	top:0;
 }
 .step_show .step_center img {
 	position:relative;
 	z-index:3;	
 }
 .step_show .step_center:after {
-	width:50%;
-	height:5px;
-	background:#fff;
-	content:"";	
-	position:absolute;
-	top:25px;
-	right:0px;
-	z-index:1;
+	background: #FFFFFF;
+    content: "";
+    height: 5px;
+    right: 0;
+    position: absolute;
+    top: 28px;
+    width: 50%;
+    z-index: 1;
 }
 .mobile_login_steps {
 	width:100%;
@@ -408,7 +410,7 @@ footer {
     height: 5px;
     left: 0;
     position: absolute;
-    top: 25px;
+    top: 38%;
     width: 4%;
     z-index: 1;
 }
@@ -448,17 +450,20 @@ footer {
 	height: 132px;
 }
 .food_item h2, .food_item h2 a  {
-	color:#fff;
-	font-size:24px;
-	font-family: 'Paytone One', 'sans-serif';
-	margin:-7px 0 36px 0;	
+	color: #FFFFFF;
+    float: left;
+    font-family: 'Paytone One','sans-serif';
+    font-size: 24px;
+    margin: 5px 0 14px;
+    text-align: center;
+    width: 100%;	
 }
 
 /*food detail*/
 .food_detail {
 	width:100%;
 	text-align:center;
-	margin-top:5px;	
+	margin-top:15px;	
 }
 .food_detail .food_item {
 	position:relative;	
@@ -618,11 +623,14 @@ footer {
 .order_confirm_text {
 	float:right;
 	position:absolute;
-	right:20px;	
+	right:20px;
+	z-index:4;
+	width:100px;	
 }
 .order_confirm_text p {
 	color:#fff;
 	font-size:14px;
+	line-height:16px;
 	float:left;
 	clear:both;
 	margin-bottom:0;	
@@ -633,10 +641,10 @@ footer {
 	margin:-2px 0 0 0;	
 }
 .selected_item_detail .order_confirm_box h2 {
-	font-size:65px;
+	font-size:56px;
 	font-family: 'Paytone One', 'sans-serif';
 	color:#5d2979;
-	margin:-18px 0 10px 0;
+	margin:-7px 0 10px 0;
 	font-weight:normal;	
 }
 .btn_orange {
@@ -652,6 +660,14 @@ footer {
 .cancel_topgap {
 	width:100%;
 	height:18px;	
+}
+.dish_title {
+	color: #FFFFFF;
+    font-family: 'Paytone One','sans-serif';
+    font-size: 24px;
+    margin: -7px 0 36px;
+	text-align:center;
+	font-weight: normal; 	
 }
 
 /*reciept*/
@@ -690,10 +706,10 @@ footer {
 	margin:-2px 0 0 0;	
 }
 .selected_item_detail .reciept_box h2 {
-	font-size:65px;
+	font-size:56px;
 	font-family: 'Paytone One', 'sans-serif';
 	color:#f14020;
-	margin:-18px 0 10px 0;
+	margin:-10px 0 10px 0;
 	font-weight:normal;	
 }
 .selected_item_detail .reciept_box h3 {
@@ -717,7 +733,7 @@ footer {
 .cancellation_con {
 	width:100%;
 	clear:both;
-	margin-top:70px;	
+	margin-top:85px;	
 }
 .cancellation_form {
 	padding:0 15px;	
