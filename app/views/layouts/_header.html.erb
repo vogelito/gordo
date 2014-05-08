@@ -66,6 +66,7 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse custom_menu" id="bs-example-navbar-collapse-1">
                               <ul class="nav navbar-nav">
+                                <li class="active"><a href="/">Home</a></li>
                                 <li class="active"><a href="/how_its_work">How it Works</a></li>
                                 <li><a href="/about">About</a></li>
                                 <% if signed_in? %>
@@ -90,7 +91,7 @@
                                   </ul>
                                 </li>
                                 <% else %>
-                                <li><%= link_to "Signin", signin_path %></li>
+                                <li><%= link_to "Sign In", signin_path %></li>
                                 <% end %>
                               </ul>
                             </div><!-- /.navbar-collapse -->

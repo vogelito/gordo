@@ -39,29 +39,29 @@
                   <div class="col-md-12">
                       <div id="carousel-example-captions" class="carousel slide" data-ride="carousel">
                           <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-captions" data-slide-to="0" class=""></li>
+                            <li data-target="#carousel-example-captions" data-slide-to="0" class="active"></li>
                             <li data-target="#carousel-example-captions" data-slide-to="1" class=""></li>
-                            <li data-target="#carousel-example-captions" data-slide-to="2" class="active"></li>
+                            <li data-target="#carousel-example-captions" data-slide-to="2" class=""></li>
                           </ol>
                           <div class="carousel-inner">
-                            <div class="item">
-                              <img src="/assets/banner1.jpg"/>
-                              <div class="carousel-caption">
-                                <h2>Super fast and magical food delivery, wherever you are!</h2>
-                                <div class="order_btn"><a class="btn btn_purple btn-lg" href="/signin">Order Now!</a></div>
-                              </div>
-                            </div>
-                            <div class="item">
-                              <img src="/assets/banner1.jpg"/>
-                              <div class="carousel-caption">
-                                <h2>Super fast and magical food delivery, wherever you are!</h2>
-                                <div class="order_btn"><a class="btn btn_purple btn-lg" href="/signin">Order Now!</a></div>
-                              </div>
-                            </div>
                             <div class="item active">
                               <img src="/assets/banner1.jpg"/>
                               <div class="carousel-caption">
-                                <h2>Super fast and magical food delivery, wherever you are!</h2>
+                                <h2>Food delivery in <%= Gordo::Application::DELIVERY_PROMISE %> minutes or less.</h2>
+                                <div class="order_btn"><a class="btn btn_purple btn-lg" href="/signin">Order Now!</a></div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <img src="/assets/banner1.jpg"/>
+                              <div class="carousel-caption">
+                                <h2>Wherever you are.</h2>
+                                <div class="order_btn"><a class="btn btn_purple btn-lg" href="/signin">Order Now!</a></div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <img src="/assets/banner1.jpg"/>
+                              <div class="carousel-caption">
+                                <h2>It's like magic!</h2>
                                 <div class="order_btn"><a class="btn btn_purple btn-lg" href="/signin">Order Now!</a></div>
                               </div>
                             </div>
@@ -80,19 +80,17 @@
                     <h2>About Gordo</h2>
                     <div><img src="/assets/aboutIcons.png"/></div>
                     <ul>
-                        <li><a href="#"><img width="103" src="/assets/GET IT ON-android.png"/></a></li>
-                        <li><a href="#"><img width="103" src="/assets/GET IT ON-ios.png"/></a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-8 col-xs-12">
               <div class="body_text about_gordo_text">
-                    <p>Gordo’s is all about food, now. This means delivery is super rapid, fun and hassle-free.</p> 
-                    <p>We make the decision thoughtless and delivery always quick and on time. It is not about choice, it is about convenience 
-                        and context.</p> 
-                    <p>We deliver food to customers quicker than competitors, such as GrubHub and Seamless, making it into a magical experience of 
-                    receiving your food right away and hassle-free.</p>
-                </div>
+                <p>Gordo is food, now.</p>
+                <p>Delivery is super rapid, fun and hassle-free.</p>
+                <p>It is not about choice, it is about convenience.</p>
+                <p>We make the decision thoughtless and delivery always on time.</p>
+                <p>It’s like magic!</p>
+              </div>
             </div>
         </div>
     </div>
@@ -103,7 +101,7 @@
           <div class="col-md-12">
               <div class="how_its_work">
                   <h2>How it Works</h2>
-                    <p>In just three steps you’ll have fresh local meals delivered to your doorstep!</p>
+                    <p>Gordo is simple! In just three steps, you’ll have fresh local meals delivered to your doorstep!</p>
                 </div>
             </div>
         </div>
@@ -111,19 +109,19 @@
           <div class="col-md-12">
                     <div class="stepsCon">
                       <ul>
-                          <li>
-                              <span><img src="/assets/step1-110.png"/></span>
-                                <p>Choose your meal and review your order.</p>
-                            </li>
-                            <li>
-                              <span><img src="/assets/step2-110.png"/></span>
-                                <p>Create a new account or simply login on your desktop computer or smartphone.</p>
-                            </li>
-                            <li>
-                              <span><img src="/assets/step3-110.png"/></span>
-                                <p>Confirm your payment and delivery information. Your Order is Complete! </p>
-                            </li> 
-                        </ul>
+                        <li>
+                          <span><img src="/assets/step1-110.png"/></span>
+                          <p>Create a new account or login.</p>
+                        </li>
+                        <li>
+                          <span><img src="/assets/step2-110.png"/></span>
+                          <p>Choose your meal and review your order.</p>
+                        </li>
+                        <li>
+                          <span><img src="/assets/step3-110.png"/></span>
+                          <p>Confirm your information, and the order is complete!</p>
+                        </li>
+                      </ul>
                     </div>
                 </div>
             </div>
@@ -144,10 +142,7 @@
                 </div>
                 <div class="col-md-5 col-xs-12">
                   <ul class="footer_social">
-                      <li><a href="#"><img src="/assets/social-googleplus-30.png"/></a></li>
-                        <li><a href="#"><img src="/assets/social-twitter-30.png"/></a></li>
-                        <li><a href="#"><img src="/assets/social-fb-30.png"/></a></li>
-                    </ul>
+                  </ul>
                 </div>
              </div>
          </div>
@@ -167,9 +162,9 @@
   </div>
 
   <%#= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %> -->
-   <script>
-      $('.carousel').carousel({
-  interval: 2000
-})
-    </script>
+  <script>
+    $('.carousel').carousel({
+      interval: 2000
+    })
+  </script>
 <% end %>

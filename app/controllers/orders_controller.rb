@@ -15,7 +15,6 @@ class OrdersController < ApplicationController
     end
     @order = current_user.orders.build(order_params)
     if @order.save
-      flash[:success] = "Order created!"
       redirect_to user_path(@current_user)
     else
       # Try to redirect him back to the Add Order page if we have a food_item_id

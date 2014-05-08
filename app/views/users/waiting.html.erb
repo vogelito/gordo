@@ -52,7 +52,7 @@
               <div class="mobile_login_steps">
                   <div class="step_show">
                       <div class="step_left pull-left right_strip">
-                          <h2>Your</br>Reciept</h2>
+                          <h2>Your</br>Receipt</h2>
                         </div>
                         <div class="step_center bottom_strip order_confirm">
                           <img src="/assets/mobile_step4.png"/>
@@ -71,7 +71,7 @@
                     <div class="food_detail">
                         <div class="food_item">
                             <a class="food_dish" href="#">
-                                <img src="/assets/food1.png"/>  
+                                <img src="<%= @food_item.picture_url %>"/>
                             </a>
                         </div>
                         <div class="selected_item_detail">
@@ -79,9 +79,9 @@
                                     <div class="tooltip-arrow"></div>
                                     <div class="tooltip-inner">
                                       <div class="reciept_box">
-                                          <p class=""><%= d.strftime("%A, %B %dth, %Y") %></p>
-                                            <h2>$<%= @order.quantity * @food_item.price %></h2>            
-                                            <p>Charged to Visa ending XX88</p>
+                                          <p class=""><%= d.strftime("%A, %B %-dth, %Y") %></p>
+                                            <h2>$<%= '%.2f' % (@order.quantity * @food_item.price) %></h2>
+                                            <p>Charged credit card on file</p>
                                             <h3><%= @order.quantity.to_s + "x " + @food_item.title %></h3>
                                         </div>
                                     </div>

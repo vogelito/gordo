@@ -70,8 +70,10 @@
                   
                     <div class="food_detail">
                         <div class="food_item">
-                            
-                            <a class="food_dish" href="#">
+
+                            <h2><%= @food_item.title %></h2>
+                            <a class="food_dish">
+
                                 <img src="<%= @food_item.picture_url %>"/> 
                             </a>
                         </div>
@@ -79,8 +81,8 @@
                           <div class="tooltip bottom in" style="">
                             <div class="tooltip-arrow"></div>
                               <div class="tooltip-inner">
-                                <p class=""><%= @food_item.price %></p>            
-                                <p class="distance_time">10 Minutes</p>
+                                <p class="">$<%= '%.2f' % @food_item.price %></p>
+                                <p class="distance_time"><%= Gordo::Application::DELIVERY_PROMISE %> Minutes</p>
                               </div>
                             </div>
                             <p class="item_des"><%= @food_item.description %></p>

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-  ruby '2.1.1'
+ruby '2.1.1'
+
 #ruby-gemset=gordo_rails_app
 
 gem 'rails', '4.0.3'

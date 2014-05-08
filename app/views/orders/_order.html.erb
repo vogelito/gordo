@@ -31,7 +31,7 @@
                         </div>
                         <div class="order_confirm_text">
                           <p><%= order.quantity.to_s + "x " + @food_item.title %></p>
-                          <p><%= order.quantity * @food_item.price %> in 10 min </p>
+                          <p>$<%= '%.2f' % (order.quantity * @food_item.price) %> in <%= Gordo::Application::DELIVERY_PROMISE %>  min </p>
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                 <div class="food_detail_con">
                     <div class="food_detail">
                         <div class="food_item">
-                            <a class="food_dish" href="#">
+                            <a class="food_dish">
                                 <img src="<%= @food_item.picture_url %>"/> 
                             </a>
                         </div>
@@ -53,9 +53,9 @@
                                     <div class="tooltip-arrow"></div>
                                     <div class="tooltip-inner">
                                       <div class="order_confirm_box">
-                                          <p class=""><%= d.strftime("%A, %B %dth, %Y") %></p>
-                                            <h2>$<%= order.quantity * @food_item.price %></h2>            
-                                            <p>Charged to Visa ending XX88</p>
+                                          <p class=""><%= d.strftime("%A, %B %-dth, %Y") %></p>
+                                            <h2>$<%= '%.2f' % (order.quantity * @food_item.price) %></h2>
+                                            <p>Will charge credit card on file</p>
                                         </div>
                                     </div>
                                 </div>
