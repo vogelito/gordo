@@ -9,7 +9,8 @@
       <% fi = FoodItem.find(order.food_item_id) %>
       <% user = User.find(order.user_id) %>
       <% #= link_to pluralize(order.quantity, fi.title), fi %>
-      <%= link_to user.name, user %>
+      <%= order.id %>
+      | <%= link_to user.name, user %>
       | <%= pluralize(order.quantity, fi.title) %>
       | <%= link_to order.address, "http://maps.google.com/maps?q=#{order.address}", :target => "_blank" %>
       | <%= link_to "GMap", "comgooglemaps://?q=#{order.address}", :target => "_blank" %>
