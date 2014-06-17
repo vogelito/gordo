@@ -31,9 +31,9 @@
   function check_delivered(){
     setTimeout(function() {    
         url = 'check_delivered_order';
-        $.get(url, function (data) {
+        $.get(url, function (data){ 
             if(data.message == true){
-              window.location.reload()
+                  window.location.reload()
             }else{
               check_delivered();
             }

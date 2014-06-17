@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   VALID_CELLPHONE_REGEX = /\A\+1\d{10}\Z/
   validates :cellphone, presence:true, uniqueness:true, format: { with: VALID_CELLPHONE_REGEX, message: "format should be (123) 555-1234" }
   validates :default_address, presence: true, length: { maximum: 100 }
-  validates :password, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }#, if: lambda { |m| m.password.present? }
+
 
   before_create :create_remember_token
 
@@ -24,7 +25,7 @@ class User < ActiveRecord::Base
       self.email = email.downcase
     end
   end
-
+  scope :find_by_reset_token, -> (token) {where("reset_password_code = ?", token).last}
   #TODO: remove...
   def feed
     # This is preliminary. See "Following users" for the full implementation.
@@ -39,6 +40,10 @@ class User < ActiveRecord::Base
 
   def User.hash(token)
     Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def reset_new_password(password, confirmed_password)
+    update_attributes({password: password, password_confirmation: confirmed_password, reset_password_code: ''})
   end
 
   private

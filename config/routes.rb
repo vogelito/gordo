@@ -1,9 +1,5 @@
 Gordo::Application.routes.draw do
-  resources :users do
-    get 'waiting', :on => :member
-    get 'check_delivered'
-    get 'check_delivered_order'
-  end
+  
   resources :sessions, only: [:new, :create, :destroy]
   resources :orders, only: [:create, :destroy, :index] do
     get 'toggle_delivery', :on => :member
@@ -29,7 +25,18 @@ Gordo::Application.routes.draw do
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/cancellation', to: 'orders#cancellation', via: 'get'
-  #match '/receipt', to: 'orders#receipt', via: 'get'
+  post '/forget_password_token', to: 'users#forget_password_token'
+  match '/forget_password', to: 'users#forget_password', via: 'get'
+  get '/new_password/:token', to: 'users#new_password', as: :reset_new_password
+
+  resources :users do
+    get 'waiting', :on => :member
+    get 'check_delivered'
+    get 'check_delivered_order', :on => :member
+    post 'reset_password', :on => :member
+  end
+  # match '/forget_password', to: 'users#forget_password', via: 'post'
+  # match '/receipt', to: 'orders#receipt', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
